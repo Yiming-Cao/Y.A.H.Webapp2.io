@@ -1,0 +1,278 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #FFF9F3;
+}
+
+.header{
+    width: 100%;
+    height: 160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.headerRight{
+    width: 50%;
+    height: 160px;
+    display: flex;
+    justify-content: flex-start;
+}
+.logo{
+    height: 160px;
+    width: auto;
+    margin-left: 60px;
+    margin-top: 7.5px;
+
+}
+.logo-img{
+    height: 50px;
+    width: 50px;
+}
+
+.headerLeft{
+    width: 50%;
+    height: 160px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu{
+    width: 106px;
+    height: 34px;
+    background-color: #F6D6C3;
+    margin-left: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    
+}
+
+.login{
+    width: 106px;
+    height: 34px;
+    background-color: #F6D6C3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+h1{
+    font-family: "Caveat", cursive;
+    font-size: 25px;
+
+}
+
+
+
+.go{
+    width: 82px;
+    height: 62px;
+    background-color: #F6D6C3;
+    margin-right: 50px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.mid{
+    width: 100%;
+    height: 2600px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.vlak-1{
+    height: 750px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+   
+}
+.vlak-1-left{
+    width: 40%;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+    align-items: center;
+    margin-right: 10%;
+}
+.vlak-1-text{
+    height: 412px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2{
+    font-family: "Caveat", cursive;
+    font-size: 120px;
+
+}
+
+.vlak-1-bottom{
+    width: 60%;
+    height: 100px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.vlak-1-right{
+    margin-right: 3%;
+}
+
+.vlak-2{
+    height: 100%;
+    width: 100%;
+    background-image: url('/image/backimg.png');
+    background-size: cover;
+    
+}
+.vlak-2-in{
+    height: 1180px;
+    width: 91%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto 0 auto;
+    align-items: end;
+}
+.vlak-2-img1{
+    height: 1121.5px;
+    width: 517px;
+    background-image: url('/image/chief-1.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+
+.vlak-2-img2{
+    height: 1101.5px;
+    width: 517px;
+    background-image: url('/image/samen.1.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+
+.vlak-2-img3{
+    height: 1179px;
+    width: 517px;
+    background-image: url('/image/bezorg.1.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+
+h3{
+    width: 90%;
+    font-family: "Caveat", cursive;
+    font-size: 100px;
+    color: rgba(255, 255, 255, 0.603);
+    margin-bottom: 100px;
+}
+
+.vlak-2-end{
+    height: 700px;
+    width: 91%;
+    margin: 0 auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.vlak-2-text{
+    height: 600px;
+    width: 20%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    margin-top: 100px;
+}
+
+h4{
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 2.2;
+}
+
+.vlak-2-text2{
+    height: 600px;
+    width: 20%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: start;
+    margin-top: 100px;
+    margin-left: 30%;
+}
+
+h5{
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 2.2;
+}
+
+footer{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2F2F2F;
+}
+.footer-vlak{
+    width: 70%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 1000;
+    color: #ffffff;
+}
+.footer-vlak2{
+    width: 70%;
+    height: 50%;
+    display: flex;
+    ;
+    justify-content: space-around;
+    font-size: 40px;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.login-vlak{
+    width: 100%;
+    height: 950px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.vlak-login{
+    width: 700px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
