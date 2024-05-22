@@ -25,8 +25,7 @@ if (!isset($_SESSION["user"])) {
 </head>
 <body>
     <?php
-        include '../includes/header.php';
-    
+        include '../includes/nav_logout.php';
     ?>
     <div class="login-vlak">
         <form action="user_delete_logic.php" name="user_delete_logic" method="POST" class="vlak-login">
