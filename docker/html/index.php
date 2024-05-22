@@ -49,39 +49,9 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="footer-up">
-            <div class="footer-up-left">
-                <div class="footer-up-left-1">
-                    <h6>contact us?</h6>
-                </div>
-                <div class="footer-up-left-2">
-                    <div class="footer-up-left-2-vlak">
-                        <img src="images/tele.png" alt="">
-                        <h1>+00 000 000 000</h1>
-                    </div>
-                </div>
-                <div class="footer-up-left-2">
-                    <div class="footer-up-left-2-vlak">
-                        <img src="images/mail.png" alt="">
-                        <h1>ditIsEenEchteMail
-                            @yeetmail.com</h1>
-                    </div>
-                </div>
-                <div class="footer-up-left-2">
-                    <div class="footer-up-left-2-vlak">
-                        <img src="images/address.png" alt="">
-                        <h1>straatstraat nm.12</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-up-right">
-                <img src="images/logo-footer.png" alt="" class="logoimg">
-            </div>
-        </div>
-        <div class="footer-down">
-            <h5>YAHI is niet verantwoord voor eventuele ondoen van gezonodhheid, of mogenlijk verlies van leven onder ons lucht contract.</h5>
-        </div>
-    </footer>
+    <?php
+        include 'includes/footer.php';
+            
+    ?>
 </body>
 </html>
