@@ -253,3 +253,35 @@ h6{
     align-items: center;
     color: #ffffff;
 }
+/* Begin logout_nav */
+.container-logo{
+    height: 100px;
+    width: 400px;
+    display: flex;
+}
+.push{
+    width: 299px;
+}
+.menu-container{
+    height: 100px;
+    width: 680px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+.menu-bar{
+    height: 40px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 104px;  
+}
+/* End logout_nav */
+ 
