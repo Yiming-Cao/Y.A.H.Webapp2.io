@@ -1,7 +1,7 @@
 <?php
-    require 'conn.php'
+    require 'conn.php';
     $search = $_POST['search'];
-    $sql = "SELECT * FROM users WHERE username LIKE '%$search%' OR email LIKE '%$search%'";
+    $sql = "SELECT * FROM users_data WHERE naam LIKE '%$search%' OR reizen LIKE '%$search%'";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll();
