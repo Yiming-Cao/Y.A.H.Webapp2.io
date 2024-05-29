@@ -15,9 +15,11 @@
 
         </div>
         <div class="headerMid">
-            <div class="logo">
-                <img src="/images/logo.png" alt="" class="logo">
-            </div>
+            <a href="../index.php">
+                <div class="logo">
+                    <img src="/images/logo.png" alt="" class="logo">
+                </div>
+            </a>
         </div>
         <div class="headerLeft">
                 <a href="../pages/register.php">

@@ -41,9 +41,15 @@
                     <h3>map!</h3>
                 </div>
                 <div class="middown-left-2">
-
+                    <img src="images/mapsmall.jpg" alt="" id="image" class="mapsmall">
+                    <a href="../pages/map.php">
+                        <div class="naarMapButton" type="button" >
+                            <h2>view the map</h2>
+                        </div>
+                    </a>
                 </div>
             </div>
+            <script src="javascript.jsx"></script>
             <div class="middown-right">
                 <img src="images/wereldbol.png" alt="" class="wereldbolimg">
             </div>
