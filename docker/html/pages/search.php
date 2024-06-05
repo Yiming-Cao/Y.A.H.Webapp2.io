@@ -1,15 +1,20 @@
 <?php
-require 'conn.php'; // Ensure this file exists and has correct path
+    require 'conn.php';
+    if (isset($_POST['search'])) {
+        $search = $_POST['search'];
+        $sql = "SELECT * FROM reizen WHERE name LIKE '%$search%'";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+    } else {
+        echo "Not found";
+    }
 
-// Check if 'search' is set in POST request
-$search = isset($_POST['search']) ? $_POST['search'] : '';
-
-// Use prepared statements to prevent SQL injection
-    $sql = "SELECT * FROM users_data WHERE naam LIKE ? OR reizen LIKE ?";
+    $sql = "SELECT * FROM reizen.naam, reizen.reizen_id, reizen.prijs
+    FROM reizen";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll();
-
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +25,27 @@ $search = isset($_POST['search']) ? $_POST['search'] : '';
     <title>Document</title>
 </head>
 <body>
-    <table>
+    <label>Y.A.H.I</label>
+    <input type="checkbox" id="isY.A.H.I">
+
+    <button onclick="filter()">filter</button>
+    <table id="reizen_results">
         <tr>
-            <th>Username</th>
-            <th>Email</th>
+            <th>naam</th>
+            <th>prijs</th>
+            <th>startDatum</th>
+            <th>eindDatum</th>
         </tr>
+
+        <?php foreach($result as $row):?>
+            <tr class="reizen">
+                <td><?php echo $row['naam'];?></td>
+                <td><?php echo $row['prijs'];?></td>
+                <td><?php echo $row['startDatum'];?></td>
+                <td><?php echo $row['eindDatum'];?></td>
+            </tr>
+        <?php endforeach; ?>
+
     </table>
     
 </body>
