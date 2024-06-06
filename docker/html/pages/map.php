@@ -20,9 +20,9 @@
         <div class="image-container">
             <img src="../images/map.png" alt="" class="map-img">
             <div id="tooltip" class="tooltip">
-            <img id="tooltip-image" src="" alt="Tooltip Image">
-            <p id="tooltip-text"></p>
-        </div>
+                <img id="tooltip-image" src="" alt="Tooltip Image">
+                <p id="tooltip-text"></p>
+            </div>
         </div>
         <div class="search-bar">
             <div class="search-bar-left">

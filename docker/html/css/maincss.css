@@ -363,7 +363,7 @@ h6{
 
 .map-img{
     width: 100%;
-    height: auto;
+    height: 800px;
     transition: transform 0.1s ease-out;
 }
 
