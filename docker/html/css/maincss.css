@@ -423,3 +423,22 @@ h6{
     width: 100%;
     height: auto;
 }
+.productenRow{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.singleReis{
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu-fotos{
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}

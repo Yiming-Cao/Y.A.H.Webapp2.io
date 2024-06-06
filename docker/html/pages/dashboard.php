@@ -34,6 +34,7 @@ if (!isset($_SESSION["user"])) {
             <input type="submit" value="delete_user">
             
         </form>
+        
     </div>
     
 </body>
