@@ -98,3 +98,17 @@
         </footer>
 </body>
 </html>
+
+
+
+<div class="image-container">
+            <img src="../images/map.png" usemap="#worldMap" alt="" class="map-img">
+            <map name="worldMap">
+                <area shape="poly" coords="1001,191" href="#" alt="中国" id="chinaArea">
+                <!-- 其他国家的区域 -->
+            </map>
+            <div id="tooltip" class="tooltip">
+                <img id="tooltip-image" src="" alt="Tooltip Image">
+                <p id="tooltip-text"></p>
+            </div>
+        </div>

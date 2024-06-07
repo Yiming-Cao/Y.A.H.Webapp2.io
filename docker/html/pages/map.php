@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 
     <title>Map</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-mapael/2.2.0/js/jquery.mapael.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-mapael/2.2.0/maps/world_countries.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mapael/2.2.0/js/maps/world_countries.js" integrity="sha512-vkZusgUuROl1lIF5iB2UQosVzYiTbkAMKnPyDe53lqR/LEkW/+Gagnbalu/p3vM54E+7PR5UXEHYnvexmID2Bw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <?php
@@ -17,13 +22,11 @@
         
     ?>
     <div class="map-mid">
-        <div class="image-container">
-            <img src="../images/map.png" alt="" class="map-img">
-            <div id="tooltip" class="tooltip">
-                <img id="tooltip-image" src="" alt="Tooltip Image">
-                <p id="tooltip-text"></p>
-            </div>
+
+        <div class="container">
+            <div class="map">Alternative content</div>
         </div>
+
         <div class="search-bar">
             <div class="search-bar-left">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="120" height="120">
@@ -72,6 +75,7 @@
         include '../includes/footer.php';
         
     ?>
-    <script src="/js/mapscript.jsx"></script>
+    <script src='../js/worldmap.jsx'></script>
+    
 </body>
 </html>
