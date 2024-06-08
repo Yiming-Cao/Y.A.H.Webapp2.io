@@ -424,21 +424,30 @@ h6{
     height: auto;
 }
 .productenRow{
-    height: 1000px;
-    width: 1000px;
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: 'Lato', sans-serif;
 }
 .singleReis{
-    height: 400px;
-    width: 400px;
+    height: 350px;
+    width: 26%;
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .menu-fotos{
-    height: 200px;
-    width: 200px;
+    width: 300px; /* Adjust this value to increase/decrease the width */
+    height: 300px; /* Adjust this value to increase/decrease the height */
+    object-fit: cover;
+}
+.naam{
+    height: 50px;
+    width: 50px;
     display: flex;
     justify-content: center;
 }
