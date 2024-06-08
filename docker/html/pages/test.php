@@ -30,7 +30,7 @@ include 'conn.php';
           echo $row['naam'];
           echo $row['prijs'];
           echo $row['beschrijving'];
-          echo $row['imgslanden'];
+          echo $row['file'];
 
           echo '</div>';
         }
