@@ -13,8 +13,10 @@ include 'conn.php';
 </head>
 
 <body>
-
-
+<?php
+$sql = "SELECT reizen_file FROM reizen";
+$result = $conn->query($sql);
+?>
   </div>
   <header>
     <div class="singleReis">';
@@ -26,13 +28,10 @@ include 'conn.php';
         // Loop voor alles wat we vinden
         while ($row = $stmt->fetch()) {
           echo '<div class="singleReis">';
-          echo '<img class="menu-fotos" src="../images/Tahiti.jpg" alt="">';
           echo $row['naam'];
           echo $row['prijs'];
           echo $row['beschrijving'];
-          echo $row['file'];
-
-          echo '</div>';
+          echo '<img src="uploads/' . $imageName . '"/>';
         }
         ?>
       </section>
@@ -43,3 +42,6 @@ include 'conn.php';
 
 
 </html>
+<?php
+$conn->close();
+?>

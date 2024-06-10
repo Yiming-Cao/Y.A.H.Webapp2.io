@@ -23,7 +23,6 @@
             <label for="">Email: </label>
             <input type="email" name="email" placeholder="Email" class="input-vlak" required>
             <input type="submit" value="register" class="register">
-            
         </form>
     </div>
     <?php
