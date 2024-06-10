@@ -1,18 +1,19 @@
 <?php
+
     require 'conn.php';
     if (isset($_POST['search'])) {
         $search = $_POST['search'];
         $sql = "SELECT * FROM reizen WHERE name LIKE '%$search%'";
-        $stmt = $conn->prepare($sql);
+        $stmt = $connection->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
     } else {
         echo "Not found";
     }
 
-    $sql = "SELECT * FROM reizen.naam, reizen.reizen_id, reizen.prijs
-    FROM reizen";
-    $stmt = $conn->prepare($sql);
+    $sql = "SELECT naam, reizen_id, prijs, startDatum, eindDatum FROM reizen";
+
+    $stmt = $connection->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll();
 ?>
@@ -52,6 +53,5 @@
 </html>
 <?php
 // Close the statement and connection
-$stmt->close();
-$conn->close();
+
 ?>

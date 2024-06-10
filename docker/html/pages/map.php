@@ -24,7 +24,7 @@
     <div class="map-mid">
 
         <div class="container">
-            <div class="map">Alternative content</div>
+            <div class="map" href="">Alternative content</div>
         </div>
 
         <div class="search-bar">
@@ -79,3 +79,4 @@
     
 </body>
 </html>
+
