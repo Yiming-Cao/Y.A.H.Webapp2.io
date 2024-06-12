@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +24,11 @@
             </a>
         </div>
         <div class="headerLeft">
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
+                <!-- 如果用户已登录，显示用户名 -->
+                <button><?php echo htmlspecialchars($_SESSION['username']); ?></button>
+            <?php else: ?>
+                <!-- 如果用户未登录，显示注册和登录按钮 -->
                 <a href="../pages/register.php">
                     <div class="register" type="button" >
                         <h1>register</h1>
@@ -32,7 +39,8 @@
                         <h2>login</h2>
                     </div>
                 </a>
-</div>
+            <?php endif; ?>
+        </div>
     </div>
 </body>
 </html>

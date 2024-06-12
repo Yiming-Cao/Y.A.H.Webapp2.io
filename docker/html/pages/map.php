@@ -29,7 +29,7 @@
 
         <div class="search-bar">
             <div class="search-bar-left">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="120" height="120">
+                <svg id="zoom-in" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="120" height="120">
                     <!-- 放大镜的主体 -->
                     <circle cx="12" cy="12" r="8" stroke="black" stroke-width="2" fill="none" />
 
@@ -41,7 +41,7 @@
                     <line x1="12" y1="8" x2="12" y2="16" stroke="black" stroke-width="2" />
                 </svg>
 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="120" height="120">
+                <svg id="zoom-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="120" height="120">
                     <!-- 放大镜的主体 -->
                     <circle cx="12" cy="12" r="8" stroke="black" stroke-width="2" fill="none" />
 
@@ -52,7 +52,7 @@
                     <line x1="8" y1="12" x2="16" y2="12" stroke="black" stroke-width="2" />
                 </svg>
 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="120" height="120">
+                <svg id="zoom-reset" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="120" height="120">
                     <!-- 放大镜的主体 -->
                     <circle cx="12" cy="12" r="8" stroke="black" stroke-width="2" fill="none" />
 
@@ -66,7 +66,9 @@
             <div class="search-bar-right">
                 
                 <input type="search" name="search" placeholder="search location..." class="search-vlak" required>
-                
+                <div class="dropdown" id="country-dropdown">
+                    <!-- Dropdown items will be populated here -->
+                </div>
             </div>
             
         </div>
