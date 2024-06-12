@@ -73,7 +73,7 @@ $password = $_POST["password"];
 $email = $_POST["email"];
 $image = $_POST["image"];
 
-$stmt = $connection->prepare("INSERT INTO reizen(username, password, email, image)  VALUES(:user, :pass, :mail :afbeelding)");
+$stmt = $connection->prepare("INSERT INTO reizen(username,password, email, image)  VALUES(:user, :pass, :mail :afbeelding)");
 $stmt->bindParam(":user", $username);
 $stmt->bindParam(":pass", $password);
 $stmt->bindParam(":mail", $email);
@@ -82,4 +82,4 @@ $stmt->execute();
 
 
 header("Location: login.php");
-?>
+?>  

@@ -23,7 +23,7 @@ if (!$result) {
     
     $_SESSION["user"] = $username;
     $_SESSION['loggedin'] = true;
-    header("Location: menu.php");
+    header("Location: map.php");
     exit();
 }
 
