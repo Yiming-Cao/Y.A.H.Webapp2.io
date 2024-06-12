@@ -390,6 +390,7 @@ h6{
     height: 120px;
     display: flex;
     align-items: center;
+    position: relative;
 }
 .search-vlak{
     width: 80%;
@@ -460,4 +461,24 @@ h6{
 svg{
     width: 100%;
     height: auto;
+}
+
+.zoomButton {
+    display: none;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+.dropdown-item {
+    padding: 5px;
+    cursor: pointer;
 }
