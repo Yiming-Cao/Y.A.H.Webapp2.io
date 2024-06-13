@@ -26,33 +26,65 @@
     
     // Loop through the results and print only the 'naam' column
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo '<div class="singleReis">';
-        echo '<h2>' . htmlspecialchars($row['naam']) . '</h2>'; // Print only the 'naam' column
+        echo '<div class="singleReis">';    
+        echo '<h2>' . ($row['naam']) . '</h2>'; // Print only the 'naam' column
         echo '<p>Prijs: ' . ($row['prijs']) . '</p>';
         echo '<p>Beschrijving: ' . ($row['beschrijving']) . '</p>';
+        echo '<div class="singleConImgFlorida">';
+        echo '<div class="singleImgFlorida">';
         echo '<img src="uploads/' . ($row['file']) . '" alt="' . ($row['naam']) . '">';
+        echo '</div>';
+        echo '</div>';
         echo '</div>';
     }
     
     echo '</section>';
-    echo '</div>'; 
+    echo '</div>';
             
-
             // Query to select only one row based on the specific 'naam'
-            
-            
-            // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            //     echo '<div class="singleReis">';
-            //     echo '<h2>' . ($row['naam']) . '</h2>';
-            //     echo '<p>Prijs: ' . ($row['prijs']) . '</p>';
-            //     echo '<p>Beschrijving: ' . ($row['beschrijving']) . '</p>';
-            //     echo '<img src="uploads/' . ($row['file']) . '" alt="' . ($row['naam']) . '">';
-            //     echo '</div>';
-            // }
-            
-            // echo '</section>';
-            // echo '</div>';
 
+    ?>
+    <h1>Kies je reisdatum</h1>
+
+    <div class="agenda-con">
+    <form method="GET" action="">
+        <label for="startDatum">Start Datum:</label>
+        <input type="date" id="startDatum" name="eindDatum" required>
+        
+        <label for="eindDatum">Eind Datum:</label>
+        <input type="date" id="eindDatum" name="eindDatum" required>
+        
+        <button type="submit">submit</button>
+    </form>
+    </div>
+    <?php
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['startDatum']) && isset($_GET['eindDatum'])) {
+            $startDatum = $_GET['startDatum'];
+            $eindDatum = $_GET['eindDatum'];
+
+            // Query to fetch bookings based on date range
+            $stmt = $connection->prepare("SELECT * FROM boekingen WHERE startDatum >= :startDatum AND eindDatum <= :eindDatum ORDER BY startDatum");
+            $stmt->bindParam(':startDatum', $startDatum, PDO::PARAM_STR);
+            $stmt->bindParam(':eindDatum', $eindDatum, PDO::PARAM_STR);
+            $stmt->execute();
+
+            echo '<div class="bookings">';
+            echo '<h2>Bookings from ' . ($startDatum) . ' to ' . ($eindDatum) . '</h2>';
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo '<div class="booking">';
+                echo '<p><strong>Start Date:</strong> ' . htmlspecialchars($row['startDatum'], ENT_QUOTES, 'UTF-8') . '</p>';
+                echo '<p><strong>End Date:</strong> ' . htmlspecialchars($row['eindDatum'], ENT_QUOTES, 'UTF-8') . '</p>';
+                echo '<p><strong>Price:</strong> ' . htmlspecialchars($row['price'], ENT_QUOTES, 'UTF-8') . '</p>';
+                echo '</div>';
+            }
+
+            echo '</div>';
+        }
+    ?>
+    <?php
+        include '../includes/footer.php';
+            
     ?>
 </body>
 </html>
