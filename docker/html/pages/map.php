@@ -64,11 +64,11 @@
                 </svg>
             </div>
             <div class="search-bar-right">
-                
-                <input type="search" name="search" placeholder="search location..." class="search-vlak" required>
-                <div class="dropdown" id="country-dropdown">
-                    <!-- Dropdown items will be populated here -->
+                <div class = "search-in">
+                    <input type="search" name="search" placeholder="search location..." id="searchBox" required>
+                    <button id="search-button" class = "searchButton"><h1>Search</h1></button>
                 </div>
+                <div id="optionsContainer" class="options-container"></div>
             </div>
             
         </div>

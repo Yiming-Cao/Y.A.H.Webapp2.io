@@ -392,7 +392,16 @@ h6{
     align-items: center;
     position: relative;
 }
-.search-vlak{
+
+.search-in{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+#searchBox{
     width: 80%;
     height: 60px;
     border-radius: 20px;
@@ -408,6 +417,17 @@ h6{
 .search-vlak::placeholder{
     
     text-align: left;
+}
+
+.searchButton{
+    width: 121px;
+    height: 60px;
+    background-color: #007BD4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-right: 15px;
 }
 
 .tooltip {
@@ -467,18 +487,32 @@ svg{
     display: none;
 }
 
-.dropdown {
+.options-container {
     position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
+    top: 40px;
+    width: 80%;
     border: 1px solid #ccc;
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 1000;
+    border-radius: 4px;
+    background-color: white;
     display: none;
+    z-index: 1000;
+    margin-top: 50px;
+    font-family: "Kanit", sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 700;
 }
-.dropdown-item {
-    padding: 5px;
+
+.option {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
     cursor: pointer;
+}
+
+.option:hover {
+    background-color: #f0f0f0;
+}
+
+.option:last-child {
+    border-bottom: none;
 }

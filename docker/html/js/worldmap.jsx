@@ -4,8 +4,20 @@ $(".container").mapael({
         defaultArea: {
             eventHandlers: {
                 click: function (e, id, mapElem, textElem, elemOptions) {
-                    if (id === "WS") { // Check if the clicked area is China (CN is the ISO code for China)
-                        window.location.href = '../pages/eiland.php';
+                    if (id === "US") { // Check if the clicked area is China (CN is the ISO code for China)
+                        window.location.href = '../pages/Amerika.php';
+                    }
+                    if (id === "CN") { // Check if the clicked area is China (CN is the ISO code for China)
+                        window.location.href = '../pages/Amerika.php';
+                    }
+                    if (id === "JP") { // Check if the clicked area is China (CN is the ISO code for China)
+                        window.location.href = '../pages/Amerika.php';
+                    }
+                    if (id === "FR") { // Check if the clicked area is China (CN is the ISO code for China)
+                        window.location.href = '../pages/Amerika.php';
+                    }
+                    if (id === "IT") { // Check if the clicked area is China (CN is the ISO code for China)
+                        window.location.href = '../pages/Amerika.php';
                     }
                 }
             }
@@ -69,59 +81,78 @@ $(".container").on("mousedown touchstart", function(e) {
     e.preventDefault();
 });
 
-// 定义一个对象，将国家名称映射到对应的 data-id
-var countryMapping = {
-    "china": "CN",
-    // 其他国家和data-id的映射关系
-};
+ // Search button click event
+ $("#search-button").on("click", function() {
+    var countryName = $("#searchBox").val().toLowerCase();
+    var countryID = getCountryIDByName(countryName);
 
-
-// 监听搜索框的输入事件
-$(".search-vlak").on("input", function() {
-    // 获取搜索框中的输入值，并转换为小写
-    var searchTerm = $(this).val().toLowerCase();
-    
-    // 根据输入值在映射对象中查找对应的 data-id
-    var areaId = countryMapping[searchTerm];
-    
-    // 如果找到了对应的 data-id，则触发地图定位到该区域
-    if (areaId) {
-        $(".container").trigger("zoom", {
-            level: 300, // Zoom level (adjust as needed)
-            area: areaId,
-            animDuration: 300
+    if (countryID) {
+        // Zoom and highlight the country
+        $(".container").trigger('zoom', {
+            area: countryID,
+            zoomLevel: 10,
+            animDuration: 1000
         });
+        $(".container").trigger('update', [{
+            mapOptions: {
+                areas: {
+                    [countryID]: {
+                        attrs: {
+                            fill: "#ff0000"
+                        }
+                    }
+                }
+            }
+        }]);
+    } else {
+        alert("Country not found!");
     }
 });
 
+// Function to get the country ID by its name
+function getCountryIDByName(name) {
+    var countries = {
+        "china": "CN",
+        "amerika": "US",
+        "japan": "JP",
+        "frankrijk": "FR",
+        "italië": "IT",
+        // Add more countries as needed
+    };
+    var lowerCaseName = name.toLowerCase();
+    
+    return countries[lowerCaseName];
+}
 
 
 
- // Populate dropdown with country names
- var countryDropdown = $('#country-dropdown');
- var countries = world_countries_map.names;
- $.each(countries, function(code, name) {
-     var item = $('<div class="dropdown-item">' + name + '</div>');
-     item.on('click', function() {
-         $(".container").trigger("zoom", {
-             level: 5, // Zoom level (adjust as needed)
-             area: code,
-             animDuration: 300
-         });
-         $('.search-vlak').val(name);
-         countryDropdown.hide();
-     });
-     countryDropdown.append(item);
- });
 
- // Show dropdown when search input is clicked
- $('.search-vlak').on('click', function() {
-     countryDropdown.show();
- });
 
- // Hide dropdown when clicking outside of it
- $(document).on('click', function(e) {
-     if (!$(e.target).closest('.search-bar-right').length) {
-         countryDropdown.hide();
-     }
- });
+// script.js
+document.getElementById('searchBox').addEventListener('focus', function() {
+    document.getElementById('optionsContainer').style.display = 'block';
+});
+
+const options = ['China', 'Amerika', 'Frankrijk', 'Italië', 'Japan'];
+
+function createOptions() {
+    const optionsContainer = document.getElementById('optionsContainer');
+    options.forEach(option => {
+        const optionElement = document.createElement('div');
+        optionElement.className = 'option';
+        optionElement.innerText = option;
+        optionElement.addEventListener('click', function() {
+            document.getElementById('searchBox').value = option;
+            optionsContainer.style.display = 'none';
+        });
+        optionsContainer.appendChild(optionElement);
+    });
+}
+
+createOptions();
+
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.search-bar-right')) {
+        document.getElementById('optionsContainer').style.display = 'none';
+    }
+});
