@@ -433,18 +433,36 @@ h6{
     font-family: 'Lato', sans-serif;
 }
 .singleReis{
-    height: 350px;
-    width: 26%;
+    height: 650px;
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
 }
+.singleConImgFlorida {
+    width: 100%; /* Adjust as needed */
+    max-width: 500px; /* Adjust as needed */
+    height: auto; /* Adjust as needed */
+    margin: 0 auto; /* Center the container */
+    border: 1px solid #ccc; /* Optional: Add a border for clarity */
+    overflow: hidden; /* Optional: Ensure no overflow */
+}
 
-.menu-fotos{
-    width: 300px; /* Adjust this value to increase/decrease the width */
-    height: 300px; /* Adjust this value to increase/decrease the height */
-    object-fit: cover;
+.singleImgFlorida {
+    width: 100%; /* Ensure the inner div takes full width */
+    height: auto; /* Adjust as needed */
+}
+
+.singleImgFlorida img {
+    width: 100%; /* Make image take full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove inline spacing issues */
+    object-fit: cover; /* Ensure image covers the container */
+}
+
+.agenda-con{
+    height: 300px;
+    width: 100%;
 }
 .naam{
     height: 50px;
