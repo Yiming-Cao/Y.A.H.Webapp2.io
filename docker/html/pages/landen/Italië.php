@@ -14,7 +14,7 @@
         include '../includes/header.php';
         include './conn.php';
    
-        $specific_naam = 'Tahiti';
+        $specific_naam = 'Italië';
             // Query om de kolommen te selecteren 'naam' en correcte kolom 'beschrijving' enz
             // $stmt = $connection->query("SELECT naam, beschrijving, prijs, bestemmingen_id, startDatum, eindDatum, file FROM reizen");
             $stmt = $connection->prepare("SELECT naam, prijs, beschrijving, file FROM reizen WHERE naam = :naam");
@@ -30,7 +30,7 @@
         echo '<h2>' . htmlspecialchars($row['naam']) . '</h2>'; // Print only the 'naam' column
         echo '<p>Prijs: ' . ($row['prijs']) . '</p>';
         echo '<p>Beschrijving: ' . ($row['beschrijving']) . '</p>';
-        echo '<img src="uploads/' . ($row['file']) . '" alt="' . ($row['naam']) . '">';
+        echo '<img src="../uploads/' . ($row['file']) . '" alt="' . ($row['naam']) . '">';
         echo '</div>';
     }
     

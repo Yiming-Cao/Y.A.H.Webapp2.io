@@ -17,7 +17,7 @@
 
         </div>
         <div class="headerMid">
-            <a href="../index.php">
+            <a href="../../index.php">
                 <div class="logo">
                     <img src="/images/logo.png" alt="" class="logo">
                 </div>
@@ -29,12 +29,12 @@
                 <button><?php echo htmlspecialchars($_SESSION['username']); ?></button>
             <?php else: ?>
                 <!-- 如果用户未登录，显示注册和登录按钮 -->
-                <a href="../pages/register.php">
+                <a href="../../pages/register.php">
                     <div class="register" type="button" >
                         <h1>register</h1>
                     </div>
                 </a>
-                <a href="../pages/login.php">
+                <a href="../../pages/login.php">
                     <div class="login" type="button" >
                         <h2>login</h2>
                     </div>

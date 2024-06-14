@@ -35,7 +35,7 @@ if (file_exists($target_file)) {
 }
 
 // Controleer de bestandsgrootte (limiet van 500KB)
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 5000000) {
     echo "Sorry, uw bestand is te groot.";
     $uploadOk = 0;
 }
