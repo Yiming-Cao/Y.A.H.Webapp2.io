@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +22,15 @@
             </a>
         </div>
         <div class="headerLeft">
-            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
+            <?php if (isset($_SESSION['user'])): ?>
                 <!-- 如果用户已登录，显示用户名 -->
-                <button><?php echo htmlspecialchars($_SESSION['username']); ?></button>
+                <div class="register" type="button" ><h1><?php echo htmlspecialchars($_SESSION['user']); ?></h1></div>
+                <a href="logout_logic.php">
+                    <div class="login" type="button" >
+                        <h2>loguit</h2>
+                    </div>
+                </a>
+                
             <?php else: ?>
                 <!-- 如果用户未登录，显示注册和登录按钮 -->
                 <a href="../../pages/register.php">

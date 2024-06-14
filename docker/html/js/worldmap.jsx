@@ -5,19 +5,19 @@ $(".container").mapael({
             eventHandlers: {
                 click: function (e, id, mapElem, textElem, elemOptions) {
                     if (id === "US") { // Check if the clicked area is China (CN is the ISO code for China)
-                        window.location.href = '../pages/Amerika.php';
+                        window.location.href = '../pages/landen/Amerika.php';
                     }
                     if (id === "CN") { // Check if the clicked area is China (CN is the ISO code for China)
-                        window.location.href = '../pages/Amerika.php';
+                        window.location.href = '../pages/landen/China.php';
                     }
                     if (id === "JP") { // Check if the clicked area is China (CN is the ISO code for China)
-                        window.location.href = '../pages/Amerika.php';
+                        window.location.href = '../pages/landen/Japan.php';
                     }
                     if (id === "FR") { // Check if the clicked area is China (CN is the ISO code for China)
-                        window.location.href = '../pages/Amerika.php';
+                        window.location.href = '../pages/landen/Frankrijk.php';
                     }
                     if (id === "IT") { // Check if the clicked area is China (CN is the ISO code for China)
-                        window.location.href = '../pages/Amerika.php';
+                        window.location.href = '../pages/landen/Italië.php';
                     }
                 }
             }
@@ -88,11 +88,7 @@ $(".container").on("mousedown touchstart", function(e) {
 
     if (countryID) {
         // Zoom and highlight the country
-        $(".container").trigger('zoom', {
-            area: countryID,
-            zoomLevel: 10,
-            animDuration: 1000
-        });
+
         $(".container").trigger('update', [{
             mapOptions: {
                 areas: {
