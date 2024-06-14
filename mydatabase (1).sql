@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jun 06, 2024 at 09:59 AM
+-- Generation Time: Jun 14, 2024 at 11:51 AM
 -- Server version: 5.7.44
 -- PHP Version: 8.2.8
 
@@ -74,6 +74,17 @@ INSERT INTO `boekingen` (`boeking_id`, `user_id`, `reis_id`, `boekingDatum`, `pe
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `image`
+--
+
+CREATE TABLE `image` (
+  `id` int(11) NOT NULL,
+  `file` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `reizen`
 --
 
@@ -85,19 +96,19 @@ CREATE TABLE `reizen` (
   `bestemmingen_id` int(11) NOT NULL,
   `startDatum` date NOT NULL,
   `eindDatum` date NOT NULL,
-  `imgslanden` varchar(255) NOT NULL
+  `file` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reizen`
 --
 
-INSERT INTO `reizen` (`reizen_id`, `naam`, `beschrijving`, `prijs`, `bestemmingen_id`, `startDatum`, `eindDatum`, `imgslanden`) VALUES
-(1, 'Tahiti', 'Een mooie tropische eiland', 260.00, 1, '2024-07-08', '2024-07-29', ''),
-(2, 'HongKong', 'Een mooie vlieg rit ', 300.00, 2, '2024-06-19', '2024-07-19', ''),
-(3, 'Saitama', 'Een erg populaire plek voor touristen', 150.00, 3, '2024-06-19', '2024-06-30', ''),
-(4, 'To Florida', 'Met een prachtige vlieg rit', 360.00, 4, '2024-06-19', '2024-07-25', ''),
-(5, 'To Parijs', 'Een prachtige vlieg rit naar Parijs', 200.00, 5, '2024-06-19', '2024-07-25', '');
+INSERT INTO `reizen` (`reizen_id`, `naam`, `beschrijving`, `prijs`, `bestemmingen_id`, `startDatum`, `eindDatum`, `file`) VALUES
+(1, 'Italië', 'Een mooie tropische eiland', 260.00, 1, '2024-07-08', '2024-07-29', 'italië.jpg'),
+(2, 'China', 'Een mooie vlieg rit ', 300.00, 2, '2024-06-19', '2024-07-19', 'hongkong.jpg'),
+(3, 'Japan', 'Een erg populaire plek voor touristen', 150.00, 3, '2024-06-19', '2024-06-30', 'saitama.jpg'),
+(4, 'Amerika', 'Met een prachtige vlieg rit', 360.00, 4, '2024-06-19', '2024-07-25', 'florida.jpeg'),
+(5, 'Frankrijk', 'Een prachtige vlieg rit naar Parijs', 200.00, 5, '2024-06-19', '2024-07-25', 'parijs.jpg');
 
 -- --------------------------------------------------------
 
@@ -141,7 +152,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `email`, `password`) VALUES
 (4, 'aaaaa', 'aaaaa.@aaa.com', 'aa'),
 (5, 'yiming', '1216894517@qq.com', '123'),
-(6, 'h', 'h@h.com', 'h');
+(6, 'h', 'h@h.com', 'h'),
+(7, 'bruh', 'abdelilahbenhaddi024@gmail.com', 'bruh');
 
 -- --------------------------------------------------------
 
@@ -179,6 +191,12 @@ ALTER TABLE `bestemmingen`
 --
 ALTER TABLE `boekingen`
   ADD PRIMARY KEY (`boeking_id`);
+
+--
+-- Indexes for table `image`
+--
+ALTER TABLE `image`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `reizen`
@@ -221,6 +239,12 @@ ALTER TABLE `boekingen`
   MODIFY `boeking_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `image`
+--
+ALTER TABLE `image`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `reizen`
 --
 ALTER TABLE `reizen`
@@ -236,7 +260,7 @@ ALTER TABLE `search`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_data`
