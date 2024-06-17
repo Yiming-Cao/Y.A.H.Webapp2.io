@@ -108,11 +108,11 @@ $(".container").on("mousedown touchstart", function(e) {
 // Function to get the country ID by its name
 function getCountryIDByName(name) {
     var countries = {
-        "china": "CN",
-        "amerika": "US",
-        "japan": "JP",
-        "frankrijk": "FR",
-        "italië": "IT",
+        "china": ["CN"],
+        "amerika": ["US"],
+        "japan": ["JP"],
+        "frankrijk": ["FR"],
+        "italië": ["IT"],
         // Add more countries as needed
     };
     var lowerCaseName = name.toLowerCase();

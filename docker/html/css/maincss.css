@@ -543,3 +543,30 @@ svg{
 .option:last-child {
     border-bottom: none;
 }
+
+.user-detail-mid{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.user-mid-left{
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.user-mid-head{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
