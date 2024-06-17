@@ -1,17 +1,15 @@
 <?php
-include './conn.php';
+        include "../conn.php";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Fetch form data
-    $start_date = $_POST['start_date'];
-    $end_date = $_POST['end_date'];
-    $price = $_POST['price'];
 
-    // Prepare and execute the insert statement
-    $stmt = $connection->prepare("INSERT INTO boekingen (start_date, end_date, price) VALUES (:start_date, :end_date, :price)");
-    $stmt->bindParam(':start_date', $start_date, PDO::PARAM_STR);
-    $stmt->bindParam(':end_date', $end_date, PDO::PARAM_STR);
-    $stmt->bindParam(':price', $price, PDO::PARAM_INT);
+    
+    $startDatum = $_POST['startDatum'];
+    $eindDatum = $_POST['eindDatum'];
+
+    
+    $stmt = $connection->prepare("INSERT INTO boekingen (startDatum, eindDatum, price) VALUES (:eindDatum, :startDatum, :price)");
+    $stmt->bindParam(':startDatum', $startDatum, PDO::PARAM_STR);
+    $stmt->bindParam(':eindDatum', $eindDatum, PDO::PARAM_STR);
 
     if ($stmt->execute()) {
         header('Location: index.php?message=Booking successful');
@@ -20,4 +18,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: index.php?message=Booking failed. Please try again.');
         exit();
     }
-}
+?>

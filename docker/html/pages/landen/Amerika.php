@@ -54,9 +54,10 @@ session_start();
     <h1>Kies je reisdatum</h1>
 
     <div class="agenda-con">
-    <form method="GET" action="">
+        woordje
+    <form method="POST" action="../submit_booking.php">
         <label for="startDatum">Start Datum:</label>
-        <input type="date" id="startDatum" name="eindDatum" required>
+        <input type="date" id="startDatum" name="startDatum" required>
         
         <label for="eindDatum">Eind Datum:</label>
         <input type="date" id="eindDatum" name="eindDatum" required>
