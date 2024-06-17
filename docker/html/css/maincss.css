@@ -459,6 +459,15 @@ h6{
     flex-direction: column;
     justify-content: center;
 }
+.singleTitle{
+    height: 30px;
+    width: 10px;
+    margin-left: 10px;
+}
+.singleText{
+    height: 100px;
+    width: 300px;
+}
 .singleConImgFlorida {
     width: 100%; /* Adjust as needed */
     max-width: 500px; /* Adjust as needed */

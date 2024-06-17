@@ -26,10 +26,14 @@
     
     // Loop through the results and print only the 'naam' column
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo '<div class="singleReis">';    
+        echo '<div class="singleReis">'; 
+        echo '<div class="singleTitle">';   
         echo '<h2>' . ($row['naam']) . '</h2>'; // Print only the 'naam' column
+        echo '</div>';
+        echo '<div class="singleText">'; 
         echo '<p>Prijs: ' . ($row['prijs']) . '</p>';
         echo '<p>Beschrijving: ' . ($row['beschrijving']) . '</p>';
+        echo '</div>';
         echo '<div class="singleConImgFlorida">';
         echo '<div class="singleImgFlorida">';
         echo '<img src="../uploads/' . ($row['file']) . '" alt="' . ($row['naam']) . '">';
