@@ -56,34 +56,33 @@ session_start();
     <div class="agenda-con">
         woordje
     <form method="POST" action="../submit_booking.php">
-        <label for="startDatum">Start Datum:</label>
-        <input type="date" id="startDatum" name="startDatum" required>
+        <label for="startdatum">Start Datum:</label>
+        <input type="date" id="startdatum" name="startdatum" required>
         
-        <label for="eindDatum">Eind Datum:</label>
-        <input type="date" id="eindDatum" name="eindDatum" required>
+        <label for="einddatum">Eind Datum:</label>
+        <input type="date" id="einddatum" name="einddatum" required>
         
         <button type="submit">submit</button>
     </form>
     </div>
     <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['startDatum']) && isset($_GET['eindDatum'])) {
-            $startDatum = $_GET['startDatum'];
-            $eindDatum = $_GET['eindDatum'];
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['startdatum']) && isset($_GET['einddatum'])) {
+            $startdatum = $_GET['startdatum'];
+            $einddatum = $_GET['einddatum'];
 
             // Query to fetch bookings based on date range
-            $stmt = $connection->prepare("SELECT * FROM boekingen WHERE startDatum >= :startDatum AND eindDatum <= :eindDatum ORDER BY startDatum");
-            $stmt->bindParam(':startDatum', $startDatum, PDO::PARAM_STR);
-            $stmt->bindParam(':eindDatum', $eindDatum, PDO::PARAM_STR);
+            $stmt = $connection->prepare("SELECT * FROM boekingen WHERE startdatum >= :startdatum AND einddatum <= :einddatum ORDER BY startdatum");
+            $stmt->bindParam(':startdatum', $startdatum);
+            $stmt->bindParam(':einddatum', $einddatum);
             $stmt->execute();
 
             echo '<div class="bookings">';
-            echo '<h2>Bookings from ' . ($startDatum) . ' to ' . ($eindDatum) . '</h2>';
+            echo '<h2>bookings from ' . ($startdatum) . ' to ' . ($einddatum) . '</h2>';
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo '<div class="booking">';
-                echo '<p><strong>Start Date:</strong> ' . htmlspecialchars($row['startDatum'], ENT_QUOTES, 'UTF-8') . '</p>';
-                echo '<p><strong>End Date:</strong> ' . htmlspecialchars($row['eindDatum'], ENT_QUOTES, 'UTF-8') . '</p>';
-                echo '<p><strong>Price:</strong> ' . htmlspecialchars($row['price'], ENT_QUOTES, 'UTF-8') . '</p>';
+                echo '<p><strong>Start Date:</strong> ' . htmlspecialchars($row['startdatum'], ENT_QUOTES, 'UTF-8') . '</p>';
+                echo '<p><strong>End Date:</strong> ' . htmlspecialchars($row['eindatum'], ENT_QUOTES, 'UTF-8') . '</p>';
                 echo '</div>';
             }
 

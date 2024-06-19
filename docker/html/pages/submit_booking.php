@@ -1,16 +1,17 @@
 <?php
-        include "../conn.php";
-
-
-    
-    $startDatum = $_POST['startDatum'];
-    $eindDatum = $_POST['eindDatum'];
+session_start();
+include("conn.php");
+?>
+<?php
 
     
-    $stmt = $connection->prepare("INSERT INTO boekingen (startDatum, eindDatum, price) VALUES (:eindDatum, :startDatum, :price)");
-    $stmt->bindParam(':startDatum', $startDatum, PDO::PARAM_STR);
-    $stmt->bindParam(':eindDatum', $eindDatum, PDO::PARAM_STR);
+    $startdatum = $_POST["startdatum"];
+    $einddatum = $_POST["einddatum"];
 
+
+    $stmt = $connection->prepare("INSERT INTO boekingen(startdatum, einddatum)  VALUES (:sdatum, :edatum)");
+    $stmt->bindParam(":sdatum", $startdatum);
+    $stmt->bindParam(":edatum", $einddatum);
     if ($stmt->execute()) {
         header('Location: index.php?message=Booking successful');
         exit();
