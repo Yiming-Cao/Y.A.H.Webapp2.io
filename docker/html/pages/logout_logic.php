@@ -20,6 +20,6 @@ session_destroy();
 $redirect_url = $_SERVER['HTTP_REFERER'];
 
 // 重定向到来源页面
-header("Location: " . $redirect_url);
+header("Location: ../index.php");
 exit;
 ?>

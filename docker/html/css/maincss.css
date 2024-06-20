@@ -553,7 +553,7 @@ svg{
 }
 
 .user-mid-left{
-    width: 30%;
+    width: 40%;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -569,4 +569,27 @@ svg{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
+}
+
+.user-mid-right{
+    width: 60%;
+    height: auto;
+    margin-left: 25%;
+}
+
+.user-info{
+    width: 70%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+ 
+}
+
+b{
+    font-family: "Kanit", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    font-style: italic;
+    color: white; 
 }

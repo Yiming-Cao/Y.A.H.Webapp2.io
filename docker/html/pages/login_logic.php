@@ -20,7 +20,7 @@ if (!$result) {
     header("Location: login.php");
     exit();
 } else {
-    
+    $_SESSION["id"]=$result['id'];
     $_SESSION["user"] = $username;
     $_SESSION['loggedin'] = true;
     header("Location: map.php");
