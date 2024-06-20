@@ -51,7 +51,49 @@ session_start();
             // Query to select only one row based on the specific 'naam'
 
     ?>
-    <h1>Kies je reisdatum</h1>
+    
+    
+    <?php 
+                    if(isset($_SESSION['status']))
+                    {
+                        ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Hey!</strong> <?php echo $_SESSION['status']; ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php
+                        unset($_SESSION['status']);
+                    }
+                ?>
+                <h1>Kies je reisdatum</h1>
+
+    <div class="agenda-con">
+    woordje
+    <form method="POST" action="/pages/submit_booking.php">
+    <label for="startdatum">Start Datum:</label>
+    <input type="date" id="startdatum" name="startdatum" required>
+    <label for="einddatum">Eind Datum:</label>
+    <input type="date" id="einddatum" name="einddatum" required>
+    <button type="submit" name="submit">submit</button>                          
+    </form>
+         
+    </div>
+    
+    
+
+
+<script src='js/main.jsx'></script>
+</body>
+</html>
+    <?php
+        include '../../includes/footer.php';
+            
+    ?>
+</body>
+</html>
+
+
+<h1>Kies je reisdatum</h1>
 
     <div class="agenda-con">
         woordje
@@ -65,40 +107,12 @@ session_start();
         <button type="submit">submit</button>
 
     </form>
+    
     </div>
     <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['startdatum']) && isset($_GET['einddatum'])) {
-            $startdatum = $_GET['startdatum'];
-            $einddatum = $_GET['einddatum'];
-
-            // Query to fetch bookings based on date range
-            $stmt = $connection->prepare("SELECT * FROM boekingen WHERE startdatum >= :startdatum AND einddatum <= :einddatum ORDER BY startdatum");
-            $stmt->bindParam(':startdatum', $startdatum);
-            $stmt->bindParam(':einddatum', $einddatum);
-            $stmt->execute();
-            
-            echo '<div class="bookings">';
-            echo '<h2>bookings from ' . ($startdatum) . ' to ' . ($einddatum) . '</h2>';
-
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo '<div class="booking">';
-                echo '<p><strong>Start Date:</strong> ' . htmlspecialchars($row['startdatum'], ENT_QUOTES, 'UTF-8') . '</p>';
-                echo '<p><strong>End Date:</strong> ' . htmlspecialchars($row['eindatum'], ENT_QUOTES, 'UTF-8') . '</p>';
-                echo '</div>';
-            }
-
-            echo '</div>';
-        }
+    if(isset($_POST['submit']))
+    {
+        $_SESSION['startdatum'] = $_POST["startdatum"];
+        $_SESSION ['einddatum'] = $_POST["einddatum"];
+    }
     ?>
-    
-
-
-<script src='js/main.jsx'></script>
-</body>
-</html>
-    <?php
-        include '../../includes/footer.php';
-            
-    ?>
-</body>
-</html>

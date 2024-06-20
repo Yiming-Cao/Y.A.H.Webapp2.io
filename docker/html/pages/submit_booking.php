@@ -1,17 +1,14 @@
 <?php
 session_start();
 include("conn.php");
-?>
-<?php
-
     
-    $startdatum = $_POST["startdatum"];
-    $einddatum = $_POST["einddatum"];
+    $_SESSION['startdatum'] = $_POST["startdatum"];
+    $_SESSION ['einddatum'] = $_POST["einddatum"];
 
 
-    $stmt = $connection->prepare("INSERT INTO boekingen(startdatum, einddatum)  VALUES (:sdatum, :edatum)");
-    $stmt->bindParam(":sdatum", $startdatum);
-    $stmt->bindParam(":edatum", $einddatum);
+    $stmt = $connection->prepare("INSERT INTO boekingen (startdatum, einddatum)  VALUES (:startdatum, :einddatum)");
+    $stmt->bindParam(":startdatum", $startdatum);
+    $stmt->bindParam(":einddatum", $einddatum);
     if ($stmt->execute()) {
         header('Location: index.php?message=Booking successful');
         exit();
