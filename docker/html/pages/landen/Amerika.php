@@ -55,16 +55,20 @@ session_start();
 
     <div class="agenda-con">
         woordje
-    <form method="POST" action="../submit_booking.php">
-        <label for="startdatum">Start Datum:</label>
-        <input type="date" id="startdatum" name="startdatum" required>
-        
-        <label for="einddatum">Eind Datum:</label>
-        <input type="date" id="einddatum" name="einddatum" required>
-        
-        <button type="submit">submit</button>
+<form method="POST" action="../submit_booking.php">
+    <label for="user_id">User ID:</label>
+    <input type="number" id="user_id" name="user_id" required>
+    
+    <label for="startdatum">Startdatum:</label>
+    <input type="date" id="startdatum" name="startdatum" required>
+    
+    <label for="einddatum">Einddatum:</label>
+    <input type="date" id="einddatum" name="einddatum" required>
+    
+    <button type="submit">Submit</button>
+</form>
 
-    </form>
+
     </div>
     <?php
         if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['startdatum']) && isset($_GET['einddatum'])) {
