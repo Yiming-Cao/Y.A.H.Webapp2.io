@@ -61,11 +61,7 @@ if ($user_id) {
     <?php if ($user_id && $user_id <= 5): ?>
         <div class="admin-panel">
             <h2>Admin Panel</h2>
-            <form method="POST" action="add_user.php">
-                <input type="text" name="new_user" placeholder="New User Name">
-                <input type="submit" value="Add User">
-            </form>
-            <form method="POST" action="delete_user.php">
+            <form method="POST" action="user_delete_logic.php">
                 <input type="number" name="user_id" placeholder="User ID to delete">
                 <input type="submit" value="Delete User">
              </form>

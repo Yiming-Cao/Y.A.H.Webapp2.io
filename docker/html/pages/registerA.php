@@ -15,15 +15,15 @@
         
     ?>
     <div class="login-vlak">
-        <form action="register_logic.php" name="register_logic" method="POST" class="vlak-login">
+        <form action="registerA_logic.php" name="registerA_logic" method="POST" class="vlak-login">
             <label for="">Voornaam:</label>
             <input type="text" name="voornaam" placeholder="Voornaam" class="input-vlak" required>
             <label for="">Achternaam: </label>
-            <input type="text" name="achternaam" placeholder="Password" class="input-vlak" required>
+            <input type="text" name="achternaam" placeholder="Achternaam" class="input-vlak" required>
             <label for="">Leeftijd: </label>
-            <input type="text" name="leeftijd" placeholder="Email" class="input-vlak" required>
+            <input type="text" name="leeftijd" placeholder="Leeftijd" class="input-vlak" required>
             <label for="">Woonadres: </label>
-            <input type="text" name="woonadres" placeholder="Email" class="input-vlak" required>
+            <input type="text" name="woonadres" placeholder="Woonadres" class="input-vlak" required>
             <input type="submit" value="register" class="register">
         </form>
     </div>

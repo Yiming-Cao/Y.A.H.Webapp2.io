@@ -35,7 +35,7 @@
                 
             <?php else: ?>
                 <!-- 如果用户未登录，显示注册和登录按钮 -->
-                <a href="../../pages/register.php">
+                <a href="../../pages/registerA.php">
                     <div class="register" type="button" >
                         <h1>register</h1>
                     </div>

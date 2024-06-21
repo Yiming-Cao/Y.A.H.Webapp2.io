@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jun 19, 2024 at 08:46 AM
+-- Generation Time: Jun 21, 2024 at 11:46 AM
 -- Server version: 5.7.44
 -- PHP Version: 8.2.8
 
@@ -58,20 +58,9 @@ CREATE TABLE `boekingen` (
   `reis_id` int(255) NOT NULL,
   `persoonen` int(90) NOT NULL,
   `deTotalePrijs` decimal(65,0) NOT NULL,
-  `startdatum` date DEFAULT NULL,
-  `einddatum` date DEFAULT NULL
+  `startdatum` date NOT NULL,
+  `einddatum` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `boekingen`
---
-
-INSERT INTO `boekingen` (`id`, `user_id`, `reis_id`, `persoonen`, `deTotalePrijs`, `startdatum`, `einddatum`) VALUES
-(1, 1, 1, 1, 240, NULL, NULL),
-(2, 2, 2, 1, 260, NULL, NULL),
-(3, 3, 3, 1, 300, NULL, NULL),
-(4, 4, 4, 1, 360, NULL, NULL),
-(5, 5, 5, 1, 370, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -151,10 +140,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `user_data_id`) VALUES
-(4, 'aaaaa', 'aaaaa.@aaa.com', 'aa', 0),
-(5, 'yiming', '1216894517@qq.com', '123', 0),
-(6, 'h', 'h@h.com', 'h', 0),
-(7, 'bruh', 'abdelilahbenhaddi024@gmail.com', 'bruh', 0);
+(1, 'Abdelilah', 'abdelilah@gmail.com', '123', 1),
+(2, 'Yiming', 'yiming@gmail.com', '123', 2),
+(3, 'admin', 'admin@gmail.com', '123', 3),
+(4, 'Bart', 'bart@gmail.com', '123', 4),
+(5, 'Harm', 'harm@gmail.com', '123', 5);
 
 -- --------------------------------------------------------
 
@@ -175,7 +165,12 @@ CREATE TABLE `user_data` (
 --
 
 INSERT INTO `user_data` (`id`, `voornaam`, `achternaam`, `leeftijd`, `woonadres`) VALUES
-(1, 'Abdelilah', 'Benhaddi', 20, 'Watertorstraat,22 6533PV');
+(1, 'Abdelilah', 'Benhaddi', 20, 'Watertorstraat,22 6533PV'),
+(2, 'Yiming', 'Cao', 22, 'Zwanenveld 3044, 6538zz'),
+(3, 'admin', 'admin', 20, 'admin 34, 1234ad'),
+(4, 'Bart', 'Kuppeveld', 28, 'somewhere 69, 2196go'),
+(5, 'Harm', 'van Kempen', 17, 'idontknow 21, 2169ha'),
+(6, 'test', 'test', 21, 'test 12, 1234ts');
 
 --
 -- Indexes for dumped tables
@@ -237,7 +232,7 @@ ALTER TABLE `bestemmingen`
 -- AUTO_INCREMENT for table `boekingen`
 --
 ALTER TABLE `boekingen`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `image`
@@ -261,13 +256,13 @@ ALTER TABLE `search`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user_data`
 --
 ALTER TABLE `user_data`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

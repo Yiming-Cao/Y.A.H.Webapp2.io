@@ -15,7 +15,7 @@
         
     ?>
     <div class="login-vlak">
-        <form action="register_logic.php" name="register_logic" method="POST" class="vlak-login">
+        <form action="registerB_logic.php" name="registerB_logic" method="POST" class="vlak-login">
             <label for="">Username:</label>
             <input type="text" name="username" placeholder="Username" class="input-vlak" required>
             <label for="">Password: </label>

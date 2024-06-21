@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("conn.php");
-if(empty($_POST["username"]) || empty($_POST["password"])){
+if(empty($_POST["username"]) || empty($_POST["password"]) || empty($_POST["confirm_password"]) || empty($_POST["email"])){
     header("Location: login.php");
     exit();
 }
