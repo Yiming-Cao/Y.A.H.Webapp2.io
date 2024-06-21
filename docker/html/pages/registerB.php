@@ -22,7 +22,7 @@
             <input type="password" name="password" placeholder="Password" class="input-vlak" required>
             <label for="">Email: </label>
             <input type="email" name="email" placeholder="Email" class="input-vlak" required>
-            <input type="submit" value="register" class="register">
+            <input type="submit" value="register" class="register2">
         </form>
     </div>
     <?php

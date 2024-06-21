@@ -24,7 +24,7 @@
             <input type="text" name="leeftijd" placeholder="Leeftijd" class="input-vlak" required>
             <label for="">Woonadres: </label>
             <input type="text" name="woonadres" placeholder="Woonadres" class="input-vlak" required>
-            <input type="submit" value="register" class="register">
+            <input type="submit" value="register" class="register2">
         </form>
     </div>
     <?php

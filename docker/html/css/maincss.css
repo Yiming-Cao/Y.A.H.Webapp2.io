@@ -51,6 +51,18 @@ body{
     border-radius: 20px;
     margin-right: 15px;
 }
+
+.register2{
+    width: 121px;
+    height: 60px;
+    background-color: #007BD4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    
+}
+
 .login{
     width: 121px;
     height: 60px;
@@ -61,6 +73,8 @@ body{
     border-radius: 20px;
     border: 1px solid black;
 }
+
+
 
 h1{
     font-family: "Kanit", sans-serif;
