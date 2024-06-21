@@ -29,8 +29,7 @@ if (isset($_POST['startdatum']) && isset($_POST['einddatum'])) {
 
     // Prepare and execute SQL statement
     try {
-        $stmt = $connection->prepare("INSERT INTO boekingen (user_id, startdatum, einddatum) VALUES (:user_id, :startdatum, :einddatum)");
-        $stmt->bindParam(":user_id", $user_id); // Add this line
+        $stmt = $connection->prepare("INSERT INTO boekingen ( startdatum, einddatum) VALUES (:startdatum, :einddatum)");
         $stmt->bindParam(":startdatum", $startdatum);
         $stmt->bindParam(":einddatum", $einddatum);
 

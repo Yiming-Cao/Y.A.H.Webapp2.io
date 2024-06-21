@@ -1,5 +1,16 @@
 <?php
 session_start();
+$user_id = $_SESSION['id'] ?? null;
+$user_data = null;
+
+if ($user_id) {
+    $sql = "SELECT id, voornaam, achternaam, leeftijd, woonadres FROM user_data WHERE id = :user_id";
+    $stmt = $connection->prepare($sql);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    
+    $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,13 +63,10 @@ session_start();
 
     ?>
     <h1>Kies je reisdatum</h1>
-
-    <div class="agenda-con">
-        woordje
-<form method="POST" action="../submit_booking.php">
-    <label for="user_id">User ID:</label>
-    <input type="number" id="user_id" name="user_id" required>
     
+
+    
+<form method="POST" action="../submit_booking.php">
     <label for="startdatum">Startdatum:</label>
     <input type="date" id="startdatum" name="startdatum" required>
     
