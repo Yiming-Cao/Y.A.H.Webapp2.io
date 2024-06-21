@@ -24,7 +24,7 @@
         <div class="headerLeft">
             <?php if (isset($_SESSION['user'])): ?>
                 <!-- 如果用户已登录，显示用户名 -->
-                <a href="../pages/user-detail.php">
+                <a href="../../pages/user-detail.php">
                     <div class="register" type="button" ><h1><?php echo htmlspecialchars($_SESSION['user']); ?></h1></div>
                 </a>
                 <a href="logout_logic.php">
