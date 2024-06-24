@@ -1,16 +1,5 @@
 <?php
 session_start();
-$user_id = $_SESSION['id'] ?? null;
-$user_data = null;
-
-if ($user_id) {
-    $sql = "SELECT id, voornaam, achternaam, leeftijd, woonadres FROM user_data WHERE id = :user_id";
-    $stmt = $connection->prepare($sql);
-    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-    $stmt->execute();
-    
-    $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,15 +20,16 @@ if ($user_id) {
         $specific_naam = 'Amerika';
             // Query om de kolommen te selecteren 'naam' en correcte kolom 'beschrijving' enz
             // $stmt = $connection->query("SELECT naam, beschrijving, prijs, bestemmingen_id, startDatum, eindDatum, file FROM reizen");
-            $stmt = $connection->prepare("SELECT naam, prijs, beschrijving, file FROM reizen WHERE naam = :naam");
+            $stmt = $connection->prepare("SELECT id, naam, prijs, beschrijving, file FROM reizen WHERE naam = :naam");
             $stmt->bindParam(':naam', $specific_naam);
             $stmt->execute(); // Execute the prepared statement to fetch results
-
+          
     echo '<div class="singleReis">';
     echo '<section class="productenRow">';
     
     // Loop through the results and print only the 'naam' column
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $_SESSION['reis_id'] = $row['id'];
         echo '<div class="singleReis">'; 
         echo '<div class="singleTitle">';   
         echo '<h2>' . ($row['naam']) . '</h2>'; // Print only the 'naam' column
@@ -67,7 +57,8 @@ if ($user_id) {
 
     
 <form method="POST" action="../submit_booking.php">
-    <label for="startdatum">Startdatum:</label>
+<input type="hidden" name="reis_id" value="<?php echo htmlspecialchars($_SESSION['reis_id']); ?>">
+<label for="startdatum">Startdatum:</label>
     <input type="date" id="startdatum" name="startdatum" required>
     
     <label for="einddatum">Einddatum:</label>
@@ -78,32 +69,6 @@ if ($user_id) {
 
 
     </div>
-    <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['startdatum']) && isset($_GET['einddatum'])) {
-            $startdatum = $_GET['startdatum'];
-            $einddatum = $_GET['einddatum'];
-
-            // Query to fetch bookings based on date range
-            $stmt = $connection->prepare("SELECT * FROM boekingen WHERE startdatum >= :startdatum AND einddatum <= :einddatum ORDER BY startdatum");
-            $stmt->bindParam(':startdatum', $startdatum);
-            $stmt->bindParam(':einddatum', $einddatum);
-            $stmt->execute();
-            
-            echo '<div class="bookings">';
-            echo '<h2>bookings from ' . ($startdatum) . ' to ' . ($einddatum) . '</h2>';
-
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo '<div class="booking">';
-                echo '<p><strong>Start Date:</strong> ' . htmlspecialchars($row['startdatum'], ENT_QUOTES, 'UTF-8') . '</p>';
-                echo '<p><strong>End Date:</strong> ' . htmlspecialchars($row['eindatum'], ENT_QUOTES, 'UTF-8') . '</p>';
-                echo '</div>';
-            }
-
-            echo '</div>';
-        }
-    ?>
-    
-
 
 <script src='js/main.jsx'></script>
 </body>
