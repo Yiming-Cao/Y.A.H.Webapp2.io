@@ -216,6 +216,9 @@ h3{
     align-items: center;
     
 }
+h6{
+
+}
 
 .planeimg{
     width: 976.3px;
@@ -474,13 +477,13 @@ h6{
     justify-content: center;
 }
 .singleTitle{
-    height: 30px;
-    width: 10px;
-    margin-left: 10px;
+    height: 64px;
+    width: 176px;
 }
 .singleText{
     height: 100px;
-    width: 300px;
+    width: 390px;
+    margin-left: 10px;
 }
 .singleConImgFlorida {
     width: 100%; /* Adjust as needed */

@@ -30,9 +30,9 @@ const setAmountOfGuests = () => {
         achternaamInput.name = 'achternaam' + i;
 
         const emailInput = document.createElement('input');
-        emailInput.type = 'email';
-        emailInput.placeholder = 'Email ' + i;
-        emailInput.name = 'email' + i;
+        emailInput.type = 'leeftijd';
+        emailInput.placeholder = 'Leeftijd ' + i;
+        emailInput.name = 'leeftijd' + i;
         
         registerForm.appendChild(voornaamInput);
         registerForm.appendChild(achternaamInput);
