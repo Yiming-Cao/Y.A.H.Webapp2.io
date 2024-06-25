@@ -12,11 +12,12 @@ $_SESSION['user_id'] = $_SESSION['id'];
 $booking_successful = false;
 
 // Check if POST data is set
-if (isset($_POST['startdatum']) && isset($_POST['einddatum']) && isset($_POST['reis_id'])) {
+if (isset($_POST['startdatum']) && isset($_POST['einddatum']) && isset($_POST['reis_id']) && isset($_POST['huurAuto'])) {
     // Trim input values to remove any extra spaces
     $startdatum = trim($_POST['startdatum']);
     $einddatum = trim($_POST['einddatum']);
     $reis_id = trim($_POST['reis_id']);
+    $huurAuto = trim($_POST['huurAuto']);
 
     // Save dates and reis_id to session
     $_SESSION['startdatum'] = $startdatum;
@@ -34,11 +35,13 @@ if (isset($_POST['startdatum']) && isset($_POST['einddatum']) && isset($_POST['r
 
     // Prepare and execute SQL statement
     try {
-        $stmt = $connection->prepare("INSERT INTO boekingen (reis_id, user_id, startdatum, einddatum) VALUES (:reis_id, :user_id, :startdatum, :einddatum)");
+        $stmt = $connection->prepare("INSERT INTO boekingen (reis_id, user_id, startdatum, einddatum, huurAuto) VALUES (:reis_id, :user_id, :startdatum, :einddatum, :huurAuto)");
         $stmt->bindParam(":reis_id", $reis_id);
         $stmt->bindParam(":user_id", $_SESSION['user_id']); // Bind the user ID from the session
         $stmt->bindParam(":startdatum", $startdatum);
         $stmt->bindParam(":einddatum", $einddatum);
+        $stmt->bindParam(":huurAuto", $huurAuto);
+
 
         if ($stmt->execute()) {
             $booking_successful = true;
