@@ -25,8 +25,7 @@
                 <div class="footer-up-left-2">
                     <div class="footer-up-left-2-vlak">
                         <img src="images/mail.png" alt="">
-                        <h1>ditIsEenEchteMail
-                            @yeetmail.com</h1>
+                        <h1>abdelilahbenhaddi024@gmail.com</h1>
                     </div>
                 </div>
                 <div class="footer-up-left-2">
@@ -34,6 +33,7 @@
                         <img src="images/address.png" alt="">
                         <h1>straatstraat nm.12</h1>
                     </div>
+                    <h1>5434PA</h1>
                 </div>
             </div>
             <div class="footer-up-right">
@@ -42,6 +42,9 @@
         </div>
         <div class="footer-down">
             <h5>YAHI is niet verantwoord voor eventuele ondoen van gezonodhheid, of mogenlijk verlies van leven onder ons lucht contract.</h5>
+            <a href="../pages/polcy.php">
+                <h5>Privacy Policy</h5>
+                </a>
         </div>
     </footer>
 </body>
