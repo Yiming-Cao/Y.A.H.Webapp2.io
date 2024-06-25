@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if (!isset($_SESSION['id'])) {
+    die("Error: User not logged in.");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +55,6 @@ session_start();
     <h1>Kies je reisdatum</h1>
     <form method="POST" action="../submit_booking.php">
         <input type="hidden" name="reis_id" value="<?php echo htmlspecialchars($_SESSION['reis_id']); ?>">
-        <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION['user_id']); ?>">
         <label for="startdatum">Startdatum:</label>
         <input type="date" id="startdatum" name="startdatum" required>
         

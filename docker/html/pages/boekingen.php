@@ -1,6 +1,5 @@
 <?php 
 require 'conn.php';
-
 ?>
 
 <!DOCTYPE html>

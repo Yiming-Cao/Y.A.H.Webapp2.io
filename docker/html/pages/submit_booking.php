@@ -3,9 +3,10 @@ session_start();
 include("conn.php");
 
 // Check if the user is logged in
-if (!isset($_SESSION['reis_id'])) {
+if (!isset($_SESSION['id'])) {
     die("Error: User not logged in.");
 }
+$_SESSION['user_id'] = $_SESSION['id'];
 
 // Initialize a variable to track booking success
 $booking_successful = false;
@@ -35,7 +36,7 @@ if (isset($_POST['startdatum']) && isset($_POST['einddatum']) && isset($_POST['r
     try {
         $stmt = $connection->prepare("INSERT INTO boekingen (reis_id, user_id, startdatum, einddatum) VALUES (:reis_id, :user_id, :startdatum, :einddatum)");
         $stmt->bindParam(":reis_id", $reis_id);
-        $stmt->bindParam(":user_id", $_SESSION['reis_id']); // Bind the user ID from the session
+        $stmt->bindParam(":user_id", $_SESSION['user_id']); // Bind the user ID from the session
         $stmt->bindParam(":startdatum", $startdatum);
         $stmt->bindParam(":einddatum", $einddatum);
 

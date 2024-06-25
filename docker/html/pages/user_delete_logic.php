@@ -18,6 +18,8 @@ try {
     $stmt2->bindParam(":userid", $userid);
     $stmt2->execute();
 
+    
+
     // Commit the transaction
     $connection->commit();
 
