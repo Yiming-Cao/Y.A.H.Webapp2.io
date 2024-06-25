@@ -28,10 +28,6 @@
             <a href="register.php">
                 <input type="button" value="register" class="register2">
             </a>
-            <a href="reset_password.php">
-                <input type="button" value="password forget" class="">
-            </a>
-            
             
         </form>
     </div>

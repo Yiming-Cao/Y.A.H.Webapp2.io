@@ -60,23 +60,28 @@ if ($user_id) {
 
     <?php if ($user_id && $user_id <= 5): ?>
         <div class="admin-panel">
-            <h2>Admin Panel</h2>
-            <form method="POST" action="user_delete_logic.php">
-                <input type="number" name="user_id" placeholder="User ID to delete">
-                <input type="submit" value="Delete User">
-             </form>
-             <div class="admin-user-list">
+            <div class="admin-panel-delete">
+                <h2>Admin Panel</h2>
+                <form method="POST" action="user_delete_logic.php" class="deleteform">
+                    <input type="number" name="user_id" placeholder="User ID to delete" class="deleteid">
+                    <input type="submit" value="Delete User" class = "searchButton">
+                </form>
+            </div>
+            <div class="admin-user-list">
                 <?php
                 $sql = "SELECT id, voornaam, achternaam, leeftijd, woonadres FROM user_data";
                 $stmt = $connection->query($sql);
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)):
                 ?>
+                    
                     <b><span class="label">ID:</span> <?php echo htmlspecialchars($row['id']); ?></b>
                     <b><span class="label">Voornaam:</span> <?php echo htmlspecialchars($row['voornaam']); ?></b>
                     <b><span class="label">Achternaam:</span> <?php echo htmlspecialchars($row['achternaam']); ?></b>
                     <b><span class="label">Leeftijd:</span> <?php echo htmlspecialchars($row['leeftijd']); ?></b>
                     <b><span class="label">Woonadres:</span> <?php echo htmlspecialchars($row['woonadres']); ?></b>
+                    <div class = "line"></div>
                     <br>
+                    
                 <?php endwhile; ?>
             </div>
         </div>
