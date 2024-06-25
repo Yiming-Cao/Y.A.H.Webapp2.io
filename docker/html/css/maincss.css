@@ -610,19 +610,41 @@ b{
     font-style: italic;
     color: white; 
 }
-
+.admin-panel{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .admin-panel-delete{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.deletform{
     width: 20%;
     margin-left: 20%;
     height: auto;
     display: flex;
     flex-direction: column;
 }
-
 .deleteform{
     display: flex;
     flex-direction: row;
+}
+
+.admin-list{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
 }
 
 .admin-user-list{

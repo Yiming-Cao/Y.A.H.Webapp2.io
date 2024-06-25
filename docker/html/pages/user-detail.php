@@ -5,16 +5,31 @@ include 'conn.php';
 // Fetch user data based on session user_id
 $user_id = $_SESSION['id'] ?? null;
 $user_data = null;
+$bookings_data = null;
 
 if ($user_id) {
-    $sql = "SELECT id, voornaam, achternaam, leeftijd, woonadres FROM user_data WHERE id = :user_id";
-    $stmt = $connection->prepare($sql);
-    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-    $stmt->execute();
-    
-    $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
+    try {
+        // Fetch user data
+        $sql1 = "SELECT id, voornaam, achternaam, leeftijd, woonadres FROM user_data WHERE id = :user_id";
+        $stmt1 = $connection->prepare($sql1);
+        $stmt1->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt1->execute();
+        $user_data = $stmt1->fetch(PDO::FETCH_ASSOC);
+
+        // Fetch bookings data
+        $sql2 = "SELECT id, reis_id, startdatum, einddatum, user_id, huurAuto FROM boekingen WHERE user_id = :user_id";
+        $stmt2 = $connection->prepare($sql2);
+        $stmt2->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt2->execute();
+        $bookings_data = $stmt2->fetch(PDO::FETCH_ASSOC);  // Assuming multiple bookings might exist
+
+    } catch (PDOException $e) {
+        // Handle any errors
+        echo 'Error: ' . $e->getMessage();
+    }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,37 +70,75 @@ if ($user_id) {
                     <p>User data not found.</p>
                 <?php endif; ?>       
             </div>
+            <div class="line"><h4>Reizen</h4></div>
+            <div class="user-info">
+                <?php if ($bookings_data): ?>
+                    <b><span class="label">ID:</span> <?php echo htmlspecialchars($bookings_data['id']); ?></b>
+                    <b><span class="label">Reis_id:</span> <?php echo htmlspecialchars($bookings_data['reis_id']); ?></b>
+                    <b><span class="label">Startdatum:</span> <?php echo htmlspecialchars($bookings_data['startdatum']); ?></b>
+                    <b><span class="label">Einddatum:</span> <?php echo htmlspecialchars($bookings_data['einddatum']); ?></b>
+                    <b><span class="label">User_id:</span> <?php echo htmlspecialchars($bookings_data['user_id']); ?></b>
+                    <b><span class="label">HuurAuto:</span> <?php echo htmlspecialchars($bookings_data['huurAuto']); ?></b>
+                <?php else: ?>
+                    <p>User data not found.</p>
+                <?php endif; ?>       
+            </div>
         </div>
     </div>
 
     <?php if ($user_id && $user_id <= 5): ?>
         <div class="admin-panel">
+            <h2>Admin Panel</h2>
             <div class="admin-panel-delete">
-                <h2>Admin Panel</h2>
+                
                 <form method="POST" action="user_delete_logic.php" class="deleteform">
                     <input type="number" name="user_id" placeholder="User ID to delete" class="deleteid">
                     <input type="submit" value="Delete User" class = "searchButton">
                 </form>
+                <form method="POST" action="reis_delete_logic.php" class="deleteform">
+                    <input type="number" name="boeking_id" placeholder="Boeking ID to delete" class="deleteid">
+                    <input type="submit" value="Delete Boeking" class = "searchButton">
+                </form>
             </div>
-            <div class="admin-user-list">
-                <?php
-                $sql = "SELECT id, voornaam, achternaam, leeftijd, woonadres FROM user_data";
-                $stmt = $connection->query($sql);
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)):
-                ?>
-                    
-                    <b><span class="label">ID:</span> <?php echo htmlspecialchars($row['id']); ?></b>
-                    <b><span class="label">Voornaam:</span> <?php echo htmlspecialchars($row['voornaam']); ?></b>
-                    <b><span class="label">Achternaam:</span> <?php echo htmlspecialchars($row['achternaam']); ?></b>
-                    <b><span class="label">Leeftijd:</span> <?php echo htmlspecialchars($row['leeftijd']); ?></b>
-                    <b><span class="label">Woonadres:</span> <?php echo htmlspecialchars($row['woonadres']); ?></b>
-                    <div class = "line"></div>
-                    <br>
-                    
-                <?php endwhile; ?>
+            <div class="admin-list">
+                <div class="admin-user-list">
+                    <?php
+                    $sql = "SELECT id, voornaam, achternaam, leeftijd, woonadres FROM user_data";
+                    $stmt = $connection->query($sql);
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)):
+                    ?>
+                        
+                        <b><span class="label">ID:</span> <?php echo htmlspecialchars($row['id']); ?></b>
+                        <b><span class="label">Voornaam:</span> <?php echo htmlspecialchars($row['voornaam']); ?></b>
+                        <b><span class="label">Achternaam:</span> <?php echo htmlspecialchars($row['achternaam']); ?></b>
+                        <b><span class="label">Leeftijd:</span> <?php echo htmlspecialchars($row['leeftijd']); ?></b>
+                        <b><span class="label">Woonadres:</span> <?php echo htmlspecialchars($row['woonadres']); ?></b>
+                        <div class = "line"></div>
+                        <br>
+                        
+                    <?php endwhile; ?>
+                </div>
+                <div class="admin-user-list">
+                    <?php
+                    $sql = "SELECT id, reis_id, startdatum, einddatum, user_id, huurAuto FROM boekingen";
+                    $stmt = $connection->query($sql);
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)):
+                    ?>
+                        
+                        <b><span class="label">ID:</span> <?php echo htmlspecialchars($row['id']); ?></b>
+                        <b><span class="label">Reis_id:</span> <?php echo htmlspecialchars($row['reis_id']); ?></b>
+                        <b><span class="label">Startdatum:</span> <?php echo htmlspecialchars($row['startdatum']); ?></b>
+                        <b><span class="label">Einddatum:</span> <?php echo htmlspecialchars($row['einddatum']); ?></b>
+                        <b><span class="label">User_id:</span> <?php echo htmlspecialchars($row['user_id']); ?></b>
+                        <b><span class="label">HuurAuto:</span> <?php echo htmlspecialchars($row['huurAuto']); ?></b>
+                        <div class = "line"></div>
+                        <br>
+                        
+                    <?php endwhile; ?>
+                </div>
             </div>
         </div>
-
+        
     <?php endif; ?>
 
     <?php
