@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jun 26, 2024 at 10:10 AM
+-- Generation Time: Jun 26, 2024 at 08:08 PM
 -- Server version: 5.7.44
 -- PHP Version: 8.2.8
 
@@ -20,31 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `mydatabase`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `bestemmingen`
---
-
-CREATE TABLE `bestemmingen` (
-  `id` int(11) NOT NULL,
-  `naam` varchar(100) NOT NULL,
-  `land` varchar(50) NOT NULL,
-  `beschrijving` text NOT NULL,
-  `HuurAuto` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `bestemmingen`
---
-
-INSERT INTO `bestemmingen` (`id`, `naam`, `land`, `beschrijving`, `HuurAuto`) VALUES
-(1, '1 week reizen', 'Tahiti', 'Kom een week reizen bij Tahiti', ''),
-(2, 'Hongkong', 'China', 'Hotel', ''),
-(3, 'saitama', 'Japan', 'Mooi appartement', ''),
-(4, 'Florida', 'Amerika', 'Een erg goedkoope appartement', ''),
-(5, 'Parijs', 'Frankrijk', 'De stad van love', '');
 
 -- --------------------------------------------------------
 
@@ -66,25 +41,12 @@ CREATE TABLE `boekingen` (
 --
 
 INSERT INTO `boekingen` (`id`, `reis_id`, `startdatum`, `einddatum`, `user_id`, `huurAuto`) VALUES
-(79, 4, '2024-06-25', '2024-06-29', 4, 0),
-(80, 4, '2024-06-25', '2024-06-29', 4, 0),
-(81, 2, '2024-06-25', '2024-06-21', 2, 0),
-(82, 1, '2024-06-25', '2024-06-27', 1, 0),
-(83, 3, '2024-06-25', '2024-06-21', 3, 0),
-(84, 4, '2024-06-25', '2024-06-28', 4, 0),
-(85, 4, '2024-06-25', '2024-06-28', 4, 0),
-(86, 4, '2024-06-25', '2024-06-29', 4, 0),
-(87, 4, '2024-06-25', '2024-06-28', 4, 0),
-(88, 4, '2024-06-25', '2024-06-30', 1, 0),
-(89, 4, '2024-06-25', '2024-06-29', 1, 0),
-(90, 4, '2024-06-25', '2024-06-29', 2, 0),
-(91, 4, '2024-06-25', '2024-06-29', 2, 0),
-(92, 4, '2024-06-25', '2024-06-29', 6, 0),
-(93, 2, '2024-06-25', '1111-11-11', 6, 0),
-(94, 2, '2024-06-25', '1111-11-11', 6, 0),
-(95, 4, '2024-06-25', '2024-06-29', 6, 1),
-(96, 4, '2024-06-25', '2024-06-29', 6, 1),
-(97, 4, '2024-06-26', '2024-06-29', 6, 1);
+(101, 4, '2024-06-26', '2024-06-29', 6, 1),
+(102, 4, '1111-11-11', '1111-11-09', 6, 0),
+(103, 4, '2024-06-26', '2024-06-29', 1, 1),
+(104, 4, '2024-06-26', '2024-06-29', 1, 1),
+(105, 2, '2024-06-26', '2024-06-29', 1, 2),
+(106, 5, '2024-06-29', '2024-06-30', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -120,7 +82,9 @@ INSERT INTO `recensies` (`id`, `user_id`, `rating`, `recensie`, `username`, `pos
 (1, 6, 4, 'hallo', 'Abdelilah', '2024-06-26 09:51:32'),
 (2, 6, 1, 'kan beter', 'Abdelilah', '2024-06-26 10:06:06'),
 (3, 6, 5, 'beter kan het toch niet :)', 'Abdelilah', '2024-06-26 10:07:09'),
-(4, 6, 5, 'beter kan het toch niet :)', 'Abdelilah', '2024-06-26 10:07:57');
+(4, 6, 5, 'beter kan het toch niet :)', 'Abdelilah', '2024-06-26 10:07:57'),
+(5, 1, 5, 'Amerika is geweldig', 'Abdelilah', '2024-06-26 17:32:24'),
+(6, 1, 5, 'Laaste test', 'Abdelilah', '2024-06-26 17:37:54');
 
 -- --------------------------------------------------------
 
@@ -228,12 +192,6 @@ INSERT INTO `user_data` (`id`, `voornaam`, `achternaam`, `leeftijd`, `woonadres`
 --
 
 --
--- Indexes for table `bestemmingen`
---
-ALTER TABLE `bestemmingen`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `boekingen`
 --
 ALTER TABLE `boekingen`
@@ -280,16 +238,10 @@ ALTER TABLE `user_data`
 --
 
 --
--- AUTO_INCREMENT for table `bestemmingen`
---
-ALTER TABLE `bestemmingen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT for table `boekingen`
 --
 ALTER TABLE `boekingen`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `image`
@@ -301,7 +253,7 @@ ALTER TABLE `image`
 -- AUTO_INCREMENT for table `recensies`
 --
 ALTER TABLE `recensies`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reizen`
