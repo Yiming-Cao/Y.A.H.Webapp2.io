@@ -50,9 +50,9 @@ if ($user_id) {
     <div class="user-detail-mid">
         <div class="user-mid-left">
             
-        <a href="javascript:history.back()">
-            <h1><</h1>
-        </a>
+            <a href="javascript:history.back()">
+                <h1><</h1>
+            </a>
             
             <div class="user-mid-head">
                 <b><?php echo htmlspecialchars($_SESSION['user']); ?></b>

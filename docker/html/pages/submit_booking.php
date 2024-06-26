@@ -75,5 +75,8 @@ if (isset($_POST['startdatum']) && isset($_POST['einddatum']) && isset($_POST['r
         <p>Reis ID: <?php echo htmlspecialchars($reis_id); ?></p>
         
     <?php endif; ?>
+    <a href="javascript:history.back()" class="register2">
+        <h1>Back</h1>
+    </a>;
 </body>
 </html>

@@ -33,7 +33,8 @@ if (!isset($_SESSION['id'])) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $_SESSION['reis_id'] = $row['id'];
             echo '<div class="singleReis">'; 
-            echo '<div class="singleTitle">';   
+            echo '<div class="singleTitle">'; 
+            echo '<h6>' . htmlspecialchars($row['id']) . '</h6>';   
             echo '<h6>' . htmlspecialchars($row['naam']) . '</h6>'; // Print only the 'naam' column
             echo '</div>';
             echo '<div class="singleText">'; 
@@ -68,10 +69,13 @@ if (!isset($_SESSION['id'])) {
     <script src='js/main.jsx'></script>
 </body>
 <div class="revieuw-container">
-<div class="revieuw-button">
- <a href="http://localhost:8000/pages/recensiescopy.php">Recensies</a>
+    <div class="revieuw-button">
+        <a href="http://localhost:8000/pages/recensiescopy.php">Recensies</a>
     </div>
-    </div>
+    <a href="javascript:history.back()" class="register2">
+        <h1>Back</h1>
+    </a>
+</div>
 </html>
 <?php
     include '../../includes/footer.php';

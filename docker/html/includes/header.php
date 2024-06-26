@@ -27,7 +27,7 @@
                 <a href="../../pages/user-detail.php">
                     <div class="register" type="button" ><h1><?php echo htmlspecialchars($_SESSION['user']); ?></h1></div>
                 </a>
-                <a href="logout_logic.php">
+                <a href="../../pages/logout_logic.php">
                     <div class="login" type="button" >
                         <h2>loguit</h2>
                     </div>
@@ -46,7 +46,16 @@
                     </div>
                 </a>
             <?php endif; ?>
+            <a href="../../pages/menu.php" class="gomenu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="32" viewBox="0 0 70 32" fill="none" >
+                    <line x1="5" y1="0.5" x2="64" y2="0.5" stroke="black"/>
+                    <line y1="16.5" x2="70" y2="16.5" stroke="black"/>
+                    <line x1="5" y1="31.5" x2="64" y2="31.5" stroke="black"/>
+                </svg>
+            </a>
         </div>
+
+        
     </div>
 </body>
 </html>

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['id'])) {
+    die("Error: User not logged in.");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
