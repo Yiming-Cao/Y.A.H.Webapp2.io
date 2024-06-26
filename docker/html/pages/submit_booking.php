@@ -1,6 +1,8 @@
 <?php
 session_start();
 include("conn.php");
+include '../includes/header.php';
+
 
 // Check if the user is logged in
 if (!isset($_SESSION['id'])) {
@@ -71,9 +73,7 @@ if (isset($_POST['startdatum']) && isset($_POST['einddatum']) && isset($_POST['r
         <p>Boeking datum succesvol verstuurd.</p>
         <p>User ID: <?php echo htmlspecialchars($_SESSION['user_id']); ?></p>
         <p>Reis ID: <?php echo htmlspecialchars($reis_id); ?></p>
-        <form action="http://localhost:8000/pages/boekingen.php" method="get">
-            <button type="submit" class="button">Continue Booking</button>
-        </form>
+        
     <?php endif; ?>
 </body>
 </html>
