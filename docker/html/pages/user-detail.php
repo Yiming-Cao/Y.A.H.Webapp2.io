@@ -5,7 +5,7 @@ include 'conn.php';
 // Fetch user data based on session user_id
 $user_id = $_SESSION['id'] ?? null;
 $user_data = null;
-$bookings_data = null;
+$bookings_data = [];
 
 if ($user_id) {
     try {
@@ -21,7 +21,7 @@ if ($user_id) {
         $stmt2 = $connection->prepare($sql2);
         $stmt2->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt2->execute();
-        $bookings_data = $stmt2->fetch(PDO::FETCH_ASSOC);  // Assuming multiple bookings might exist
+        $bookings_data = $stmt2->fetchAll(PDO::FETCH_ASSOC);  // Assuming multiple bookings might exist
 
     } catch (PDOException $e) {
         // Handle any errors
@@ -73,16 +73,20 @@ if ($user_id) {
             <div class="line"><h4>Reizen</h4></div>
             <div class="user-info">
                 <?php if ($bookings_data): ?>
-                    <b><span class="label">ID:</span> <?php echo htmlspecialchars($bookings_data['id']); ?></b>
-                    <b><span class="label">Reis_id:</span> <?php echo htmlspecialchars($bookings_data['reis_id']); ?></b>
-                    <b><span class="label">Startdatum:</span> <?php echo htmlspecialchars($bookings_data['startdatum']); ?></b>
-                    <b><span class="label">Einddatum:</span> <?php echo htmlspecialchars($bookings_data['einddatum']); ?></b>
-                    <b><span class="label">User_id:</span> <?php echo htmlspecialchars($bookings_data['user_id']); ?></b>
-                    <b><span class="label">HuurAuto:</span> <?php echo htmlspecialchars($bookings_data['huurAuto']); ?></b>
+                    <?php foreach ($bookings_data as $booking): ?>
+                        <b><span class="label">ID:</span> <?php echo htmlspecialchars($booking['id']); ?></b>
+                        <b><span class="label">Reis_id:</span> <?php echo htmlspecialchars($booking['reis_id']); ?></b>
+                        <b><span class="label">Startdatum:</span> <?php echo htmlspecialchars($booking['startdatum']); ?></b>
+                        <b><span class="label">Einddatum:</span> <?php echo htmlspecialchars($booking['einddatum']); ?></b>
+                        <b><span class="label">User_id:</span> <?php echo htmlspecialchars($booking['user_id']); ?></b>
+                        <b><span class="label">HuurAuto:</span> <?php echo htmlspecialchars($booking['huurAuto']); ?></b>
+                        <div class="line"></div>
+                    <?php endforeach; ?>
                 <?php else: ?>
-                    <p>User data not found.</p>
+                    <p>No bookings found.</p>
                 <?php endif; ?>       
             </div>
+            
         </div>
     </div>
 
@@ -95,9 +99,13 @@ if ($user_id) {
                     <input type="number" name="user_id" placeholder="User ID to delete" class="deleteid">
                     <input type="submit" value="Delete User" class = "searchButton">
                 </form>
-                <form method="POST" action="reis_delete_logic.php" class="deleteform">
+                <form method="POST" action="boeking_delete_logic.php" class="deleteform">
                     <input type="number" name="boeking_id" placeholder="Boeking ID to delete" class="deleteid">
                     <input type="submit" value="Delete Boeking" class = "searchButton">
+                </form>
+                <form method="POST" action="reis_delete_logic.php" class="deleteform">
+                    <input type="number" name="reis_id" placeholder="reis ID to delete" class="deleteid">
+                    <input type="submit" value="Delete Reis" class = "searchButton">
                 </form>
             </div>
             <div class="admin-list">
@@ -131,6 +139,22 @@ if ($user_id) {
                         <b><span class="label">Einddatum:</span> <?php echo htmlspecialchars($row['einddatum']); ?></b>
                         <b><span class="label">User_id:</span> <?php echo htmlspecialchars($row['user_id']); ?></b>
                         <b><span class="label">HuurAuto:</span> <?php echo htmlspecialchars($row['huurAuto']); ?></b>
+                        <div class = "line"></div>
+                        <br>
+                        
+                    <?php endwhile; ?>
+                </div>
+                <div class="admin-user-list">
+                    <?php
+                    $sql = "SELECT id, naam, prijs, bestemmingen_id, file FROM reizen";
+                    $stmt = $connection->query($sql);
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)):
+                    ?>
+                        
+                        <b><span class="label">ID:</span> <?php echo htmlspecialchars($row['id']); ?></b>
+                        <b><span class="label">Naam:</span> <?php echo htmlspecialchars($row['naam']); ?></b>
+                        <b><span class="label">Prijs:</span> <?php echo htmlspecialchars($row['prijs']); ?></b>
+                        <b><span class="label">Bestemmingen_id:</span> <?php echo htmlspecialchars($row['bestemmingen_id']); ?></b>
                         <div class = "line"></div>
                         <br>
                         

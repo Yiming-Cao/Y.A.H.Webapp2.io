@@ -602,7 +602,7 @@ svg{
 
 .user-info{
     width: 70%;
-    height: 500px;
+    height: auto;
     display: flex;
     flex-direction: column;
  
