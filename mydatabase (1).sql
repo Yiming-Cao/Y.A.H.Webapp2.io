@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jun 25, 2024 at 07:26 PM
+-- Generation Time: Jun 26, 2024 at 10:10 AM
 -- Server version: 5.7.44
 -- PHP Version: 8.2.8
 
@@ -82,7 +82,9 @@ INSERT INTO `boekingen` (`id`, `reis_id`, `startdatum`, `einddatum`, `user_id`, 
 (92, 4, '2024-06-25', '2024-06-29', 6, 0),
 (93, 2, '2024-06-25', '1111-11-11', 6, 0),
 (94, 2, '2024-06-25', '1111-11-11', 6, 0),
-(95, 4, '2024-06-25', '2024-06-29', 6, 1);
+(95, 4, '2024-06-25', '2024-06-29', 6, 1),
+(96, 4, '2024-06-25', '2024-06-29', 6, 1),
+(97, 4, '2024-06-26', '2024-06-29', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -94,6 +96,31 @@ CREATE TABLE `image` (
   `id` int(11) NOT NULL,
   `file` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recensies`
+--
+
+CREATE TABLE `recensies` (
+  `id` int(255) NOT NULL,
+  `user_id` int(90) NOT NULL,
+  `rating` int(90) NOT NULL,
+  `recensie` text NOT NULL,
+  `username` text NOT NULL,
+  `post` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `recensies`
+--
+
+INSERT INTO `recensies` (`id`, `user_id`, `rating`, `recensie`, `username`, `post`) VALUES
+(1, 6, 4, 'hallo', 'Abdelilah', '2024-06-26 09:51:32'),
+(2, 6, 1, 'kan beter', 'Abdelilah', '2024-06-26 10:06:06'),
+(3, 6, 5, 'beter kan het toch niet :)', 'Abdelilah', '2024-06-26 10:07:09'),
+(4, 6, 5, 'beter kan het toch niet :)', 'Abdelilah', '2024-06-26 10:07:57');
 
 -- --------------------------------------------------------
 
@@ -219,6 +246,12 @@ ALTER TABLE `image`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `recensies`
+--
+ALTER TABLE `recensies`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `reizen`
 --
 ALTER TABLE `reizen`
@@ -256,13 +289,19 @@ ALTER TABLE `bestemmingen`
 -- AUTO_INCREMENT for table `boekingen`
 --
 ALTER TABLE `boekingen`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `recensies`
+--
+ALTER TABLE `recensies`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `reizen`

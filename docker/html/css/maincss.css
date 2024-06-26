@@ -830,3 +830,21 @@ b{
     font-style: italic;
 }
 
+.revieuw-button{
+        width: 121px;
+        height: 60px;
+        background-color: #4ba2ee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        border: 1px solid black;
+}
+.revieuw-container{
+    height: 26vh;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}

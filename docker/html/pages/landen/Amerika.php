@@ -5,7 +5,6 @@ if (!isset($_SESSION['id'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,6 +67,11 @@ if (!isset($_SESSION['id'])) {
     </form>
     <script src='js/main.jsx'></script>
 </body>
+<div class="revieuw-container">
+<div class="revieuw-button">
+ <a href="http://localhost:8000/pages/recensiescopy.php">Revieuw</a>
+    </div>
+    </div>
 </html>
 <?php
     include '../../includes/footer.php';

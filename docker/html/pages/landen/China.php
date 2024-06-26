@@ -64,6 +64,11 @@ session_start();
     </form>
     <script src='js/main.jsx'></script>
 </body>
+<div class="revieuw-container">
+<div class="revieuw-button">
+ <a href="http://localhost:8000/pages/recensiescopy.php">Revieuw</a>
+    </div>
+    </div>
 </html>
 <?php
     include '../../includes/footer.php';
