@@ -516,7 +516,12 @@ h6{
     display: flex;
     justify-content: center;
 }
-
+.naam2{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .container{
     width: 100%;
     height: auto;
@@ -842,16 +847,22 @@ b{
 }
 .revieuw-container{
     height: 26vh;
-    width: 45%;
-    display: flex;
+    width: 100%;    display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
 }
-.footer-up{
-    height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: purple;
+.revieuw-containertext{
+width: 30%;
+height: 30px;
+display: flex;                                          
+}
+.groter{
+    width: 300px;
+    height: 200px;
+}
+.input-vlakresensie{
+    width: 300px;
+    height: 100px;
+    border-radius: 20px;
 }

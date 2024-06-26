@@ -69,7 +69,7 @@ if (!isset($_SESSION['id'])) {
 </body>
 <div class="revieuw-container">
 <div class="revieuw-button">
- <a href="http://localhost:8000/pages/recensiescopy.php">Revieuw</a>
+ <a href="http://localhost:8000/pages/recensiescopy.php">Recensies</a>
     </div>
     </div>
 </html>

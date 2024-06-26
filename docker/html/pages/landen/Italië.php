@@ -1,9 +1,10 @@
 <?php
 session_start();
-
+if (!isset($_SESSION['id'])) {
+    die("Error: User not logged in.");
+}
 ?>
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,9 +52,11 @@ session_start();
         echo '</div>';
     ?>
     <h1>Kies je reisdatum</h1>
+    
     <form method="POST" action="../submit_booking.php">
+    <label for="huurAuto">Huur auto</label>    
+    <input type="int" name="huurAuto" required>
         <input type="hidden" name="reis_id" value="<?php echo htmlspecialchars($_SESSION['reis_id']); ?>">
-        <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION['user_id']); ?>">
         <label for="startdatum">Startdatum:</label>
         <input type="date" id="startdatum" name="startdatum" required>
         
@@ -66,7 +69,7 @@ session_start();
 </body>
 <div class="revieuw-container">
 <div class="revieuw-button">
- <a href="http://localhost:8000/pages/recensiescopy.php">Revieuw</a>
+ <a href="http://localhost:8000/pages/recensiescopy.php">Recensies</a>
     </div>
     </div>
 </html>

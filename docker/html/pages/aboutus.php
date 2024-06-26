@@ -14,19 +14,33 @@ session_start();
 </head>
 <body>
     <?php
-        include '../../includes/header.php';
-        include "../conn.php";
+        include '../includes/header.php';
+        include "./conn.php";
  ?>
-    <h1>Over Ons - Y.A.H.I Reizen</h1>
-Y.A.H.I Reizen staat voor Yiming & Youthful, Abdelilah & Avontuur, en Harm & Holiday. Wij bieden gepersonaliseerde avonturen en ontspannende vakanties, met een focus op kwaliteit en unieke ervaringen. Ontdek de wereld met ons en maak uw droomreis werkelijkheid.
-
+ <div class="naam2">
+ <h6>Over Ons - Y.A.H.I Reizen</h6>
+ </div>
+ <div class=" revieuw-container">
+ <div class="revieuw-containertext">
+<h1 >Y.A.H.I Reizen staat voor Yiming & Youthful, 
+Abdelilah & Avontuur, en Harm & Holiday. Wij bieden gepersonaliseerde avonturen en ontspannende vakanties, met een focus op kwaliteit en unieke ervaringen. Ontdek de wereld met ons en maak uw droomreis werkelijkheid.
+</h1>
+</div>
+</div>
 </body>
 <div class="revieuw-container">
 <div class="revieuw-button">
- <a href="http://localhost:8000/pages/recensiescopy.php">Revieuw</a>
+ <a href="http://localhost:8000/pages/recensiescopy.php">Recensies
     </div>
     </div>
+</a>
+    <div class="revieuw-container">
+<div class="revieuw-button">
+ <a href="http://localhost:8000/pages/contact.php">Hulp nodig?
+    </div>
+    </div>
+    </a>
 </html>
 <?php
-    include '../../includes/footer.php';
+    include '../includes/footer.php';
 ?>

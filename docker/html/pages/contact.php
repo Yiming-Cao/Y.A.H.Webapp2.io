@@ -30,7 +30,7 @@ session_start();
           <span class="button-tekts">Mail ons</span>
           <div class="icon"></div>
           <h1>_________</h1>
-        </a>f
+        </a>
        </div>
        <?php
         include '../includes/footer.php';

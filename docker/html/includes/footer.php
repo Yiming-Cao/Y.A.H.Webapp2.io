@@ -40,13 +40,11 @@
                 <img src="../../images/logo-footer.png" alt="" class="logoimg">
             </div>
         </div>
-        <div class="footer-up">
-        <a href="../pages/polcy.php">
-                <p>Privacy Policy</p>
-                </a>
-        </div>
         <div class="footer-down">
             <h5>YAHI is niet verantwoord voor eventuele ondoen van gezonodhheid, of mogenlijk verlies van leven onder ons lucht contract.</h5>
+            <a href="../pages/polcy.php">
+                <p>Privacy Policy</p>
+                </a>
         </div>
     </footer>
 </body>

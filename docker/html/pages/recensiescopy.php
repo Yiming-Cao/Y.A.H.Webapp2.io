@@ -29,9 +29,8 @@
             <label for="rating">Rating (1-5):</label>
             <input type="number" name="rating" min="1" max="5" required>
             
-            <label for="recensie">Review:</label>
-            <textarea name="recensie" required></textarea>
-            
+            <label for="recensie">Recensie:</label>
+            <input type="text" name="recensie" placeholder="recensie" class="input-vlakresensie" required>
             <button type="submit">Submit</button>
         </form>
     </div>

@@ -32,9 +32,11 @@ session_start();
                 <div class="midup-right-2">
                     <h4>Welkom bij Y.A.H.I Reizen, uw toegangspoort tot onvergetelijke avonturen en vakantie-ervaringen! Onze naam weerspiegelt de geest en passie van onze oprichters en de essentie van wat we onze gewaardeerde reizigers bieden.</h4>
                 </div>
+                <a href="http://localhost:8000/pages/aboutus.php">
                 <div class="midup-right-3">
                     <h1>Leer meer over ons</h1>
                 </div>
+                </a>
             </div>
         </div>
         <div class="middown">
@@ -48,7 +50,7 @@ session_start();
                     <img src="images/mapsmall.jpg" alt="" id="image" class="mapsmall">
                     <a href="../pages/map.php">
                         <div class="naarMapButton" type="button" >
-                            <h2>Bekijk de kaart</h2>
+                            <h1>Bekijk de kaart</h1>
                         </div>
                     </a>
                 </div>
