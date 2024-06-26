@@ -848,3 +848,10 @@ b{
     align-content: center;
     align-items: center;
 }
+.footer-up{
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: purple;
+}

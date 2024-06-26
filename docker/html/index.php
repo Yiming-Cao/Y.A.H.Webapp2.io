@@ -30,25 +30,25 @@ session_start();
                     <h3>Hola, aloha!</h3>
                 </div>
                 <div class="midup-right-2">
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea  commodo consequat. Duis aute irure dolor in reprehenderit in voluptate  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint  occaecat cupidatat non proident, sunt in culpa qui officia deserunt  mollit anim id est laborum</h4>
+                    <h4>Welkom bij Y.A.H.I Reizen, uw toegangspoort tot onvergetelijke avonturen en vakantie-ervaringen! Onze naam weerspiegelt de geest en passie van onze oprichters en de essentie van wat we onze gewaardeerde reizigers bieden.</h4>
                 </div>
                 <div class="midup-right-3">
-                    <h1>learn more about YAHI</h1>
+                    <h1>Leer meer over ons</h1>
                 </div>
             </div>
         </div>
         <div class="middown">
             <div class="middown-left">
                 <div class="middown-left-1">
-                    <h3>Plan your trip </h3>
-                    <h3>using our smart </h3>
+                    <h3>Plan uw reis in</h3>
+                    <h3>met onze slimme</h3>
                     <h3>map!</h3>
                 </div>
                 <div class="middown-left-2">
                     <img src="images/mapsmall.jpg" alt="" id="image" class="mapsmall">
                     <a href="../pages/map.php">
                         <div class="naarMapButton" type="button" >
-                            <h2>view the map</h2>
+                            <h2>Bekijk de kaart</h2>
                         </div>
                     </a>
                 </div>

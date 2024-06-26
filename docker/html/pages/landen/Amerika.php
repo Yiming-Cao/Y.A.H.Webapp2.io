@@ -54,7 +54,7 @@ if (!isset($_SESSION['id'])) {
     <h1>Kies je reisdatum</h1>
     
     <form method="POST" action="../submit_booking.php">
-    <label for="huurAuto">Auto</label>    
+    <label for="huurAuto">Huur auto</label>    
     <input type="int" name="huurAuto" required>
         <input type="hidden" name="reis_id" value="<?php echo htmlspecialchars($_SESSION['reis_id']); ?>">
         <label for="startdatum">Startdatum:</label>

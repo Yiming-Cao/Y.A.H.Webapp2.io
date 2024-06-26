@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +17,8 @@ session_start();
         include '../../includes/header.php';
         include "../conn.php";
  ?>
-    <h1>Kies je reisdatum</h1>
+    <h1>Over Ons - Y.A.H.I Reizen</h1>
+Y.A.H.I Reizen staat voor Yiming & Youthful, Abdelilah & Avontuur, en Harm & Holiday. Wij bieden gepersonaliseerde avonturen en ontspannende vakanties, met een focus op kwaliteit en unieke ervaringen. Ontdek de wereld met ons en maak uw droomreis werkelijkheid.
 
 </body>
 <div class="revieuw-container">
